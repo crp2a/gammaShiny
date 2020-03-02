@@ -1,0 +1,20 @@
+citHeader("To cite gamma in publications use:")
+
+citEntry(entry = "Manual",
+  title        = "{gammaShiny}: 'Shiny' Applications for the R Package 'gamma'",
+  author       = c(person("Nicolas", "Frerebeau", role = c("aut", "cre")),
+                   person("Brice", "Lebrun", role = "aut")),
+  year         = "2020",
+  organization = "Université Bordeaux Montaigne",
+  address      = "Pessac, France",
+  note         = "R package version 0.1.0",
+  url          = "https://doi.org/xxx",
+
+  textVersion  =
+  paste("Frerebeau, Nicolas and Lebrun, Brice (2020).",
+        "gammaShiny: 'Shiny' Applications for the R Package 'gamma'.",
+        "R package version 0.1.0.",
+        "Université Bordeaux Montaigne, Pessac, France.",
+        "DOI xxx.",
+        "URL https://cran.r-project.org/package=gammaShiny.")
+)
