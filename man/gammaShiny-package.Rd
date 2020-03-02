@@ -7,6 +7,8 @@
 \alias{gammaShiny}
 \title{gammaShiny: 'Shiny' Applications for the R Package 'gamma'}
 \description{
+\if{html}{\figure{logo.png}{options: align='right'}}
+
 A collection of 'shiny' applications for the R package
     'gamma'.
 }

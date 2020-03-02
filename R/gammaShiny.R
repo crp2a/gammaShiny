@@ -39,4 +39,12 @@
 #' @importFrom ggplot2 aes coord_cartesian facet_wrap geom_errorbar
 #' geom_errorbarh geom_path geom_point geom_pointrange geom_segment geom_vline
 #' ggplot ggsave labs scale_x_continuous sec_axis theme_bw vars waiver
+#' @importFrom kableExtra add_header_above kable_styling row_spec
+#' @importFrom knitr kable
+#' @importFrom shiny NS actionButton brushOpts checkboxInput column
+#' downloadButton fileInput fluidPage fluidRow h4 h5 helpText htmlOutput icon
+#' img numericInput plotOutput radioButtons selectInput sliderInput tabPanel
+#' tableOutput tabsetPanel tags textAreaInput uiOutput
+#' verbatimTextOutput wellPanel
+#' @importFrom shinyWidgets pickerInput
 NULL

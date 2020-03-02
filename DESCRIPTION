@@ -20,6 +20,8 @@ URL: https://crp2a.github.io/gammaShiny,
 BugReports: https://github.com/crp2a/gammaShiny/issues
 Depends: 
     R (>= 3.3)
+Remotes:
+    crp2a/gamma
 Imports: 
     gamma (>= 0.2.0),
     ggplot2 (>= 3.1.0),

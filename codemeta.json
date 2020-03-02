@@ -1,5 +1,8 @@
 {
-  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@context": [
+    "https://doi.org/10.5063/schema/codemeta-2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "gammaShiny",
   "description": "A collection of 'shiny' applications for the R package\n    'gamma'.",
@@ -56,7 +59,8 @@
       "@type": "SoftwareApplication",
       "identifier": "gamma",
       "name": "gamma",
-      "version": ">= 0.2.0"
+      "version": ">= 0.2.0",
+      "sameAs": "https://github.com/crp2a/gamma"
     },
     {
       "@type": "SoftwareApplication",
@@ -121,9 +125,16 @@
     }
   ],
   "releaseNotes": "https://github.com/crp2a/gammaShiny/blob/master/NEWS.md",
-  "fileSize": "28.354KB",
-  "contIntegration": ["https://ci.appveyor.com/project/nfrerebeau/gammaShiny/branch/master", "https://travis-ci.org/crp2a/gammaShiny", "https://codecov.io/gh/crp2a/gammaShiny"],
-  "developmentStatus": ["https://www.repostatus.org/#wip", "https://www.tidyverse.org/lifecycle/#experimental"],
+  "fileSize": "194.81KB",
+  "contIntegration": [
+    "https://ci.appveyor.com/project/nfrerebeau/gammaShiny/branch/master",
+    "https://travis-ci.org/crp2a/gammaShiny",
+    "https://codecov.io/gh/crp2a/gammaShiny"
+  ],
+  "developmentStatus": [
+    "https://www.repostatus.org/#wip",
+    "https://www.tidyverse.org/lifecycle/#experimental"
+  ],
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -144,5 +155,6 @@
       "url": "https://doi.org/xxx",
       "description": "R package version 0.1.0"
     }
-  ]
+  ],
+  "keywords": ["luminescence-dating", "geochronology", "archaeology", "r-package", "shiny-applications"]
 }
