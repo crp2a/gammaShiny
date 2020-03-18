@@ -31,7 +31,7 @@ knitr::opts_chunk$set(
 
 ## Overview
 
-A collection of [**Shiny**](https://shiny.rstudio.com) applications for the R package [**gamma**](https://github.com/crp2a/gamma).
+A collection of [**shiny**](https://shiny.rstudio.com) applications for the R package [**gamma**](https://github.com/crp2a/gamma).
 
 ## Installation
 
@@ -39,12 +39,12 @@ Install the development version from GitHub with:
 
 ```{r gh-installation, eval=FALSE}
 # install.packages("devtools")
-devtools::install_github("crp2a/gammaShiny")
+remotes::install_github("crp2a/gammaShiny")
 ```
 
 ## Usage
 
-A [**Shiny**](https://shiny.rstudio.com) application provides an exhanced graphical user interface:
+A [**shiny**](https://shiny.rstudio.com) application provides an exhanced graphical user interface:
 
 ```{r shiny, eval=FALSE}
 ## Load the package

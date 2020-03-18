@@ -23,7 +23,7 @@ public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostat
 
 ## Overview
 
-A collection of [**Shiny**](https://shiny.rstudio.com) applications for
+A collection of [**shiny**](https://shiny.rstudio.com) applications for
 the R package [**gamma**](https://github.com/crp2a/gamma).
 
 ## Installation
@@ -32,12 +32,12 @@ Install the development version from GitHub with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("crp2a/gammaShiny")
+remotes::install_github("crp2a/gammaShiny")
 ```
 
 ## Usage
 
-A [**Shiny**](https://shiny.rstudio.com) application provides an
+A [**shiny**](https://shiny.rstudio.com) application provides an
 exhanced graphical user interface:
 
 ``` r

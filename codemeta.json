@@ -5,7 +5,7 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "gammaShiny",
-  "description": "A collection of 'shiny' applications for the R package\n    'gamma'.",
+  "description": "A collection of 'shiny' applications for the R package 'gamma'.",
   "name": "gammaShiny: 'Shiny' Applications for the R Package 'gamma'",
   "codeRepository": "https://github.com/crp2a/gammaShiny",
   "relatedLink": "https://crp2a.github.io/gammaShiny",
@@ -36,7 +36,12 @@
     }
   ],
   "contributor": {},
-  "copyrightHolder": {},
+  "copyrightHolder": [
+    {
+      "@type": "Organization",
+      "name": "Université Bordeaux Montaigne"
+    }
+  ],
   "funder": {},
   "maintainer": [
     {
@@ -125,7 +130,7 @@
     }
   ],
   "releaseNotes": "https://github.com/crp2a/gammaShiny/blob/master/NEWS.md",
-  "fileSize": "194.81KB",
+  "fileSize": "215.486KB",
   "contIntegration": [
     "https://ci.appveyor.com/project/nfrerebeau/gammaShiny/branch/master",
     "https://travis-ci.org/crp2a/gammaShiny",
@@ -156,5 +161,12 @@
       "description": "R package version 0.1.0"
     }
   ],
-  "keywords": ["luminescence-dating", "geochronology", "archaeology", "r-package", "shiny-applications"]
+  "keywords": [
+    "luminescence-dating",
+    "geochronology",
+    "archaeology",
+    "r-package",
+    "shiny-applications"
+  ],
+  "readme": "https://github.com/crp2a/gammaShiny/blob/master/README.md"
 }
