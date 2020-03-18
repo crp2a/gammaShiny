@@ -12,7 +12,7 @@ module_about <- function(id) {
         align = "center",
         offset = 2,
         wellPanel(
-          img(src = "logo.png", width = "120px", alt = "gamma"),
+          img(src = "/figures/logo.png", width = "120px", alt = "gamma"),
           h4(paste("gamma", utils::packageVersion("gamma"), sep = " ")),
           tags$br(),
           tags$p("Source code:",

@@ -10,6 +10,7 @@ rm(list = ls())
 
 ## Set Shiny settings ==========================================================
 options(shiny.maxRequestSize = 30*1024^2)
+addResourcePath("figures", system.file("man/figures", package = "gammaShiny"))
 enableBookmarking(store = "server")
 env_current <- environment()
 
