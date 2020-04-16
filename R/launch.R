@@ -6,6 +6,8 @@
 #' @param app A \code{\link{character}} string specifying the Shiny application
 #'  to launch. It must be one of \code{"doserate"} or \code{"calibration"}
 #'  (see details).
+#' @param browser A \code{\link{logical}} scalar: should the app be launched in
+#'  the browser?
 #' @details
 #'  \tabular{ll}{
 #'   **Application name** \tab  **Keyword** \cr
@@ -21,12 +23,12 @@
 #' @family shiny
 #' @author N. Frerebeau
 #' @export
-launch_app <- function(app = c("doserate", "calibration")) {
+launch_app <- function(app = c("doserate", "calibration"), browser = TRUE) {
   app <- match.arg(app, several.ok = FALSE)
   if (app == "calibration")
     stop("Work in progress.", call. = FALSE)
   shiny::shinyAppDir(
-    appDir = system.file("shiny", app, package = "gammaShiny"),
-    options = list(launch.browser = TRUE)
+    appDir = system.file(app, package = "gammaShiny"),
+    options = list(launch.browser = browser)
   )
 }

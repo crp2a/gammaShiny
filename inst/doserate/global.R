@@ -1,5 +1,5 @@
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## Title:   gamma
+## Title:   Dose Rate Estimation
 ## Authors: Nicolas Frerebeau, Université Bordeaux Montaigne (France)
 ##          Brice Lebrun, Université Bordeaux Montaigne (France)
 ## Contact: nicolas.frerebeau@u-bordeaux-montainge.fr
@@ -7,10 +7,10 @@
 
 ## Load packages ===============================================================
 rm(list = ls())
+library(gamma)
 
 ## Set Shiny settings ==========================================================
 options(shiny.maxRequestSize = 30*1024^2)
-addResourcePath("figures", system.file("man/figures", package = "gammaShiny"))
 enableBookmarking(store = "server")
 env_current <- environment()
 

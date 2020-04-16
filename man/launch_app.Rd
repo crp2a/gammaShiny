@@ -4,12 +4,15 @@
 \alias{launch_app}
 \title{Launch the Shiny App}
 \usage{
-launch_app(app = c("doserate", "calibration"))
+launch_app(app = c("doserate", "calibration"), browser = TRUE)
 }
 \arguments{
 \item{app}{A \code{\link{character}} string specifying the Shiny application
 to launch. It must be one of \code{"doserate"} or \code{"calibration"}
 (see details).}
+
+\item{browser}{A \code{\link{logical}} scalar: should the app be launched in
+the browser?}
 }
 \value{
 A \pkg{shiny} application object.

@@ -17,7 +17,7 @@ shiny_server <- function(input, output, session) {
     file <- input$import_files
     # Return a GammaSpectra object
     spc_name <- tools::file_path_sans_ext(file$name)
-    spc_data <- read(file$datapath)
+    spc_data <- gamma::read(file$datapath)
     spc_data <- methods::as(spc_data, "GammaSpectra")
     set_names(spc_data) <- spc_name
     # Store data
