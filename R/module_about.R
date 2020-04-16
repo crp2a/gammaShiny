@@ -1,4 +1,9 @@
-module_about <- function(id) {
+#' About
+#'
+#' @param id TODO.
+#' @family module
+#' @export
+mod_ui_about <- function(id) {
 
   # Create a namespace function using the provided id
   ns <- NS(id)

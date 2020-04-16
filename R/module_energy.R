@@ -1,4 +1,9 @@
-module_energy <- function(id) {
+#' Energy Scale Calibration
+#'
+#' @param id TODO.
+#' @family module
+#' @export
+mod_ui_energy <- function(id) {
 
   # Create a namespace function using the provided id
   ns <- NS(id)

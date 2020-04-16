@@ -1,4 +1,9 @@
-module_settings <- function(id) {
+#' Settings
+#'
+#' @param id TODO.
+#' @family module
+#' @export
+mod_ui_settings <- function(id) {
 
   # Create a namespace function using the provided id
   ns <- NS(id)
