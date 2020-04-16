@@ -52,7 +52,20 @@
       "@id": "https://orcid.org/0000-0001-5759-4944"
     }
   ],
-  "softwareSuggestions": [],
+  "softwareSuggestions": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "testthat",
+      "name": "testthat",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
+    }
+  ],
   "softwareRequirements": [
     {
       "@type": "SoftwareApplication",
@@ -130,7 +143,7 @@
     }
   ],
   "releaseNotes": "https://github.com/crp2a/gammaShiny/blob/master/NEWS.md",
-  "fileSize": "239.145KB",
+  "fileSize": "239.677KB",
   "contIntegration": [
     "https://ci.appveyor.com/project/nfrerebeau/gammaShiny/branch/master",
     "https://travis-ci.org/crp2a/gammaShiny",
