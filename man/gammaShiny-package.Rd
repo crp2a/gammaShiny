@@ -7,7 +7,7 @@
 \alias{gammaShiny}
 \title{gammaShiny: 'Shiny' Applications for the R Package 'gamma'}
 \description{
-\if{html}{\figure{logo.png}{options: align='right'}}
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
 A collection of 'shiny' applications for the R package 'gamma'.
 }
@@ -15,7 +15,7 @@ A collection of 'shiny' applications for the R package 'gamma'.
 \tabular{ll}{
  \strong{Package:} \tab gammaShiny \cr
  \strong{Type:} \tab Package \cr
- \strong{Version:} \tab 0.2.0 \cr
+ \strong{Version:} \tab 0.1.0 \cr
  \strong{License:} \tab GPL-3 \cr
  \strong{DOI:} \tab \href{https://doi.org/xxx}{xxx}
 }
