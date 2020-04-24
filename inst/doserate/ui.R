@@ -274,7 +274,7 @@ shiny_ui <- fluidPage(
                 "options_energy_pairs",
                 "Chanel-energy pairs",
                 value = "", width = NULL,
-                rows = 8, placeholder = "76 238"
+                rows = 8, placeholder = "76 238.63\n465 1460.82\n830 2614.51"
               ),
               numericInput("options_energy_tolerance", "Tolerance (in chanel)",
                            value = 5, min = 1, max = 50, step = 1)
