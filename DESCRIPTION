@@ -36,9 +36,5 @@ RoxygenNote: 7.1.0
 Collate: 
     'gammaShiny-package.R'
     'run.R'
-    'module_about.R'
-    'module_energy.R'
-    'module_import.R'
-    'module_settings.R'
 Suggests: 
     testthat
