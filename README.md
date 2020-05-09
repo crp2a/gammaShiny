@@ -3,10 +3,8 @@
 
 # gammaShiny <img width=120px src="man/figures/logo.png" align="right" />
 
-[![Appveyor build
-status](https://ci.appveyor.com/api/projects/status/qb7yvcbc8knvmul9?svg=true)](https://ci.appveyor.com/project/nfrerebeau/gammashiny)
-[![Travis build
-Status](https://travis-ci.org/crp2a/gammaShiny.svg?branch=master)](https://travis-ci.org/crp2a/gammaShiny)
+[![R build
+status](https://github.com/crp2a/gammaShiny/workflows/R-CMD-check/badge.svg)](https://github.com/crp2a/gammaShiny/actions)
 
 <!-- CRAN badges
 [![CRAN Version](http://www.r-pkg.org/badges/version/gammaShiny)](https://cran.r-project.org/package=gammaShiny)
