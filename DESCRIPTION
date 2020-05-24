@@ -13,14 +13,13 @@ Authors@R:
              email = "brice.lebrun@u-bordeaux-montaigne.fr",
              comment = c(ORCID = "https://orcid.org/0000-0001-7503-8685")),
       person(given = "Université Bordeaux Montaigne",
-             role = c("cph")))
+             role = c("cph", "fnd")))
 Description: A collection of 'shiny' applications for the R package 'gamma'.
 License: GPL-3
-URL: https://crp2a.github.io/gammaShiny,
-    https://github.com/crp2a/gammaShiny
+URL: https://github.com/crp2a/gammaShiny
 BugReports: https://github.com/crp2a/gammaShiny/issues
 Depends: 
-    R (>= 3.3)
+    R (>= 3.6)
 Remotes:
     crp2a/gamma
 Imports: 
@@ -28,13 +27,25 @@ Imports:
     ggplot2 (>= 3.1.0),
     kableExtra,
     knitr,
+    methods,
+    plotly,
     shiny,
-    shinyWidgets
+    shinyWidgets,
+    utils
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.0
 Collate: 
     'gammaShiny-package.R'
+    'module_about_ui.R'
+    'module_dose_server.R'
+    'module_dose_ui.R'
+    'module_energy_server.R'
+    'module_energy_ui.R'
+    'module_import_server.R'
+    'module_import_ui.R'
+    'module_settings_server.R'
+    'module_settings_ui.R'
     'run.R'
 Suggests: 
     testthat

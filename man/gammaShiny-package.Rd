@@ -29,7 +29,6 @@ de la Recherche (France) throught the program \emph{Investissements d'avenir}
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://crp2a.github.io/gammaShiny}
   \item \url{https://github.com/crp2a/gammaShiny}
   \item Report bugs at \url{https://github.com/crp2a/gammaShiny/issues}
 }

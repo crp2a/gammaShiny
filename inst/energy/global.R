@@ -1,5 +1,5 @@
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## Title:   Dose Rate Estimation
+## Title:   Energy Scale Calibration
 ## Authors: Nicolas Frerebeau, Université Bordeaux Montaigne (France)
 ##          Brice Lebrun, Université Bordeaux Montaigne (France)
 ## Contact: nicolas.frerebeau@u-bordeaux-montainge.fr
@@ -14,8 +14,3 @@ library(gammaShiny)
 options(shiny.maxRequestSize = 30*1024^2)
 enableBookmarking(store = "server")
 env_current <- environment()
-
-## Load datasets ===============================================================
-env_calibration <- new.env()
-data("BDX_LaBr_1", package = "gamma", envir = env_calibration)
-data("AIX_NaI_1", package = "gamma", envir = env_calibration)

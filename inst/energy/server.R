@@ -12,6 +12,5 @@ shiny_server <- function(input, output, session) {
   user_settings <- reactiveValues()
   callModule(module_import_server, "import", user_data, user_settings)
   callModule(module_energy_server, "energy", user_data, user_settings)
-  callModule(module_dose_server, "dose", user_data, user_settings)
   callModule(module_settings_server, "settings", user_settings)
 }

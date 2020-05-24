@@ -3,14 +3,10 @@
 
 # gammaShiny <img width=120px src="man/figures/logo.png" align="right" />
 
+<!-- badges: start -->
+
 [![R build
 status](https://github.com/crp2a/gammaShiny/workflows/R-CMD-check/badge.svg)](https://github.com/crp2a/gammaShiny/actions)
-
-<!-- CRAN badges
-[![CRAN Version](http://www.r-pkg.org/badges/version/gammaShiny)](https://cran.r-project.org/package=gammaShiny)
-[![CRAN checks](https://cranchecks.info/badges/worst/gammaShiny)](https://cran.r-project.org/web/checks/check_results_gammaShiny.html)
-[![CRAN Downloads](http://cranlogs.r-pkg.org/badges/gammaShiny)](https://cran.r-project.org/package=gammaShiny)
--->
 
 [![Project Status: WIP – Initial development is in progress, but there
 has not yet been a stable, usable release suitable for the
@@ -18,6 +14,8 @@ public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostat
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
 <!-- [![DOI](https://zenodo.org/badge/DOI/xxx)](xxx) -->
+
+<!-- badges: end -->
 
 ## Overview
 
