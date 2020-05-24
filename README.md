@@ -11,7 +11,8 @@ status](https://github.com/crp2a/gammaShiny/workflows/R-CMD-check/badge.svg)](ht
 [![Project Status: WIP – Initial development is in progress, but there
 has not yet been a stable, usable release suitable for the
 public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
 <!-- [![DOI](https://zenodo.org/badge/DOI/xxx)](xxx) -->
 
@@ -19,29 +20,27 @@ public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostat
 
 ## Overview
 
-A collection of [**shiny**](https://shiny.rstudio.com) applications for
-the R package [**gamma**](https://github.com/crp2a/gamma).
+A collection of [**shiny**](https://shiny.rstudio.com) application that
+provides exhanced graphical user interfaces for the
+[**gamma**](https://github.com/crp2a/gamma) package.
 
 ## Installation
 
 Install the development version from GitHub with:
 
 ``` r
-# install.packages("devtools")
+# install.packages("remotes")
 remotes::install_github("crp2a/gammaShiny")
 ```
 
 ## Usage
 
-A [**shiny**](https://shiny.rstudio.com) application provides an
-exhanced graphical user interface:
-
 ``` r
 ## Load the package
 library(gammaShiny)
 
-## Run the app
-launch_app()
+## Run the app for gamma dose rate estimation
+run_app("doserate")
 ```
 
 ![](man/figures/README-shiny-1.png)
