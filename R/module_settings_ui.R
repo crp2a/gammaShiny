@@ -39,6 +39,13 @@ module_settings_ui <- function(id) {
             inputId = ns("fig_units"),
             label = "Figure units",
             choices = c("in", "cm", "mm")
+          ),
+          selectInput(
+            inputId = ns("fig_colour"),
+            label = "Colour scale",
+            selected = "default",
+            choices = c("default", "bright", "contrast", "vibrant", "muted",
+                        "pale", "dark", "light", "discrete rainbow")
           )
         ),
         column(width = 3),

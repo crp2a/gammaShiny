@@ -69,7 +69,7 @@ module_import_ui <- function(id) {
       fluidRow(
         column(
           width = 12,
-          htmlOutput(outputId = ns("summary"))
+          tableOutput(outputId = ns("summary"))
         )
       )
     )

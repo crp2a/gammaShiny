@@ -38,8 +38,13 @@
 #' @import gamma
 #' @importFrom DT datatable dataTableOutput editData renderDT
 #' @importFrom ggplot2 theme_bw
-#' @importFrom kableExtra add_header_above kable_styling row_spec
+#' @importFrom grDevices hcl
+#' @importFrom kableExtra add_header_above cell_spec kable_styling row_spec
+#' spec_color
 #' @importFrom knitr kable
+#' @importFrom khroma colour scale_color_discreterainbow scale_color_bright
+#' scale_color_contrast scale_color_vibrant scale_color_muted scale_color_pale
+#' scale_color_dark scale_color_light
 #' @importFrom methods as is
 #' @importFrom plotly ggplotly renderPlotly plotlyOutput
 #' @importFrom shiny numericInput NS actionButton checkboxInput column
@@ -49,5 +54,6 @@
 #' selectInput showNotification sliderInput tabPanel tabsetPanel tagList tags
 #' textAreaInput uiOutput updateSelectInput updateSliderInput validate
 #' verbatimTextOutput navbarPage wellPanel enableBookmarking callModule
+#' tableOutput
 #' @importFrom shinyWidgets dropdownButton pickerInput
 NULL

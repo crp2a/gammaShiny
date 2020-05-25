@@ -27,7 +27,8 @@ module_import_server <- function(input, output, session,
   plot_spectra <- reactive({
     plot(user_spectra(), xaxis = input$xaxis, yaxis = input$yaxis,
          select = input$select, facet = input$facet) +
-      ggplot2::theme_bw()
+      ggplot2::theme_bw() +
+      user_settings$fig_scale
   })
   observe({
     # Return a GammaSpectra object
@@ -54,8 +55,19 @@ module_import_server <- function(input, output, session,
     plotly::ggplotly(plot_spectra())
   })
   output$summary <- renderText({
+    tbl <- user_table()
+    id <- tbl$name
+    tbl$name <- kableExtra::cell_spec(
+      x = tbl$name,
+      format = "html",
+      bold = TRUE,
+      color = "white",
+      background = factor(id, id, user_settings$fig_colour(length(id)))
+    )
     tbl <- knitr::kable(
-      x = user_table(),
+      x = tbl,
+      format = "html",
+      escape = FALSE,
       digits = user_settings$digits,
       row.names = FALSE,
       col.names = c("Name", "Date", "Live time", "Real time", "Chanels",

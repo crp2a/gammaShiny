@@ -26,13 +26,16 @@ Imports:
     DT,
     gamma (>= 0.2.0),
     ggplot2,
+    grDevices,
     kableExtra,
     knitr,
+    khroma,
     methods,
     plotly,
     shiny,
     shinyWidgets,
     stats,
+    tools,
     utils
 Encoding: UTF-8
 LazyData: true
