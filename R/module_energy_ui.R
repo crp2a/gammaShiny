@@ -49,7 +49,7 @@ module_energy_ui <- function(id) {
                   ),
                   numericInput(
                     inputId = ns("presets_tolerance"),
-                    label = "Tolerance (in chanel)",
+                    label = "Tolerance",
                     value = 5, min = 1, max = 50, step = 1
                   )
                 ),

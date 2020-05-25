@@ -36,9 +36,9 @@ module_dose_ui <- function(id) {
         column(
           width = 3,
           selectInput(
-            inputId = ns("curve"),
+            inputId = ns("select_curve"),
             label = "Select a calibration curve",
-            selected = 1,
+            selected = NULL,
             choices = list(
               Choose = "",
               IRAMAT = c(BDX_LaBr_1 = "BDX_LaBr_1"),
@@ -61,6 +61,12 @@ module_dose_ui <- function(id) {
         column(
           width = 4,
           uiOutput(outputId = ns("info")),
+          fileInput(
+            inputId = ns("files"),
+            label = "Import a calibration curve",
+            multiple = FALSE,
+            accept = c('.rds', '.RDS')
+          ),
           conditionalPanel(
             ns = ns,
             condition = "input.curve != ''",

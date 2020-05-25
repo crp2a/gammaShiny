@@ -40,7 +40,7 @@
 #' @importFrom ggplot2 theme_bw
 #' @importFrom kableExtra add_header_above kable_styling row_spec
 #' @importFrom knitr kable
-#' @importFrom methods as
+#' @importFrom methods as is
 #' @importFrom plotly ggplotly renderPlotly plotlyOutput
 #' @importFrom shiny numericInput NS actionButton checkboxInput column
 #' conditionalPanel downloadButton downloadHandler fileInput fluidPage fluidRow

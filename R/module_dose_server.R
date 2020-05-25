@@ -11,16 +11,44 @@
 #' @export
 module_dose_server <- function(input, output, session,
                                user_data, user_settings) {
+  # Set an environment to store the calibration curve
+  # (should be set in global.R; prevents warning in R CMD Check)
+  if (!exists("env_calibration")) env_calibration <- new.env()
 
+  user_files <- reactive({
+    # If no file is selected, don't do anything
+    validate(need(input$files, message = FALSE))
+    input$files
+  })
+  observe({
+    cv_name <- tools::file_path_sans_ext(user_files()$name)
+    cv_data <- readRDS(user_files()$datapath)
+    if (!methods::is(cv_data, "CalibrationCurve")) {
+      shinyWidgets::sendSweetAlert(
+        session = session,
+        title = "Calibration Curve",
+        text = "Your file is not a valid calibration curve.",
+        type = "error"
+      )
+    } else {
+      # Assign to environment
+      assign(cv_name, cv_data, env_calibration)
+      # Update UI
+      updateSelectInput(
+        session,
+        inputId = "select_curve",
+        choices = ls(envir = env_calibration),
+        selected = cv_name
+      )
+    }
+  })
   user_spectra <- reactive({
     req(user_data$spectra, input$select)
     user_data$spectra[input$select]
   })
   user_curve <- reactive({
-    req(input$curve)
-    if (!exists("env_calibration"))
-      env_calibration <- new.env()
-    get(input$curve, envir = env_calibration)
+    req(input$select_curve)
+    get(input$select_curve, envir = env_calibration)
   })
   user_dose <- reactive({
     req(input$sigma, input$epsilon)

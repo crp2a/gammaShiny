@@ -4,12 +4,12 @@
 \alias{run_app}
 \title{Run a Shiny App}
 \usage{
-run_app(app = c("doserate", "calibration", "energy"), browser = TRUE)
+run_app(app = c("doserate", "calibration"), browser = TRUE)
 }
 \arguments{
 \item{app}{A \code{\link{character}} string specifying the Shiny application
-to run. It must be one of "\code{doserate}", "\code{calibration}" or
-"\code{energy}" (see details). Any unambiguous substring can be given.}
+to run. It must be one of "\code{doserate}" or "\code{calibration}"
+(see details). Any unambiguous substring can be given.}
 
 \item{browser}{A \code{\link{logical}} scalar: should the app be run in
 the browser?}
@@ -25,14 +25,12 @@ A wrapper for \code{\link[shiny]{shinyAppDir}}.
   **Application name** \tab  **Keyword** \cr
   Dose rate estimation \tab \code{doserate} \cr
   Calibration curve builder \tab \code{calibration} \cr
-  Energy scale calibration \tab \code{energy} \cr
  }
 }
 \examples{
 \dontrun{
 run_app("doserate")
 run_app("calibration")
-run_app("energy")
 }
 }
 \author{

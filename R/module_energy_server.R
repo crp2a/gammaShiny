@@ -110,8 +110,11 @@ module_energy_server <- function(input, output, session,
     updateSliderInput(session, inputId = "slice_range",
                       max = max_chanel, value = c(60, max_chanel))
   })
-  observeEvent(input$presets_lines, {
-    lines <- try(
+  observeEvent({
+    user_data$spectra
+    input$presets_lines
+    }, {
+      presets <- try(
       utils::read.table(
         header = FALSE, sep = " ", dec = ".",
         strip.white = TRUE, blank.lines.skip = TRUE,
@@ -121,21 +124,23 @@ module_energy_server <- function(input, output, session,
       ),
       silent = TRUE
     )
-    if (!inherits(lines, "try-error")) {
+    if (!inherits(presets, "try-error")) {
       tmp <- user_lines()
-      if (nrow(tmp) > 0 && nrow(lines) > 0) {
+      if (nrow(tmp) > 0 && nrow(presets) == 0) {
+        tmp$energy <- NA_real_
+      } else if (nrow(tmp) > 0 &&nrow(presets) > 0) {
         req(input$presets_tolerance)
         tol <- input$presets_tolerance
-        for (i in seq_len(nrow(lines))) {
-          b <- lines$chanel[i]
+        for (i in seq_len(nrow(presets))) {
+          b <- presets$chanel[i]
           k <- which.min(abs(tmp$chanel - b))
           a <- tmp$chanel[k]
           if (a >= b - tol && a <= b + tol) {
-            tmp$energy[k] <- lines$energy[i]
+            tmp$energy[k] <- presets$energy[i]
           }
         }
-        user_lines(tmp)
       }
+      user_lines(tmp)
     }
   })
   observeEvent(input$input_lines_cell_edit, {
@@ -151,7 +156,7 @@ module_energy_server <- function(input, output, session,
     # Calibrate energy scale
     spc_calib <- try(calibrate_energy(spc, pks))
     # Update spectrum
-    if (class(spc_calib) == "try-error") {
+    if (inherits(spc_calib, "try-error")) {
       shinyWidgets::sendSweetAlert(
         session = session,
         title = "Energy Calibration",
