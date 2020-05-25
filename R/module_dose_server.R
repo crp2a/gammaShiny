@@ -18,7 +18,7 @@ module_dose_server <- function(input, output, session,
   })
   user_curve <- reactive({
     req(input$curve)
-    if (!exists(env_calibration))
+    if (!exists("env_calibration"))
       env_calibration <- new.env()
     get(input$curve, envir = env_calibration)
   })

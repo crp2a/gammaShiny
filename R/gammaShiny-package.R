@@ -36,11 +36,18 @@
 "_PACKAGE"
 
 #' @import gamma
-#' @import shiny
+#' @importFrom DT datatable dataTableOutput editData renderDT
 #' @importFrom ggplot2 theme_bw
 #' @importFrom kableExtra add_header_above kable_styling row_spec
 #' @importFrom knitr kable
 #' @importFrom methods as
 #' @importFrom plotly ggplotly renderPlotly plotlyOutput
-#' @importFrom shinyWidgets pickerInput
+#' @importFrom shiny numericInput NS actionButton checkboxInput column
+#' conditionalPanel downloadButton downloadHandler fileInput fluidPage fluidRow
+#' h4 h5 helpText htmlOutput icon img need observe observeEvent radioButtons
+#' reactive reactiveVal reactiveValues renderPrint renderText renderUI req
+#' selectInput showNotification sliderInput tabPanel tabsetPanel tagList tags
+#' textAreaInput uiOutput updateSelectInput updateSliderInput validate
+#' verbatimTextOutput navbarPage wellPanel enableBookmarking callModule
+#' @importFrom shinyWidgets dropdownButton pickerInput
 NULL

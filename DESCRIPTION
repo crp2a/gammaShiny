@@ -23,14 +23,16 @@ Depends:
 Remotes:
     crp2a/gamma
 Imports: 
+    DT,
     gamma (>= 0.2.0),
-    ggplot2 (>= 3.1.0),
+    ggplot2,
     kableExtra,
     knitr,
     methods,
     plotly,
     shiny,
     shinyWidgets,
+    stats,
     utils
 Encoding: UTF-8
 LazyData: true

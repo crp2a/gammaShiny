@@ -11,6 +11,7 @@
 #' @export
 module_energy_server <- function(input, output, session,
                                  user_data, user_settings) {
+  user_lines <- reactiveVal(data.frame())
   user_spectrum <- reactive({
     # Validation
     req(user_data$spectra, input$select)
@@ -51,33 +52,26 @@ module_energy_server <- function(input, output, session,
                          m = input$smooth_m, p = input$smooth_p)
 
     # Remove baseline
-    spc <- remove_baseline(spc, method = input$baseline_method,
-                           LLS = input$baseline_lls,
-                           decreasing = input$baseline_decreasing,
-                           k = input$baseline_k)
+    bsl <- estimate_baseline(spc, method = input$baseline_method,
+                             LLS = input$baseline_lls,
+                             decreasing = input$baseline_decreasing,
+                             k = input$baseline_k)
+    spc <- spc - bsl
 
     # Detect peaks
     pks <- find_peaks(spc, method = input$peak_method, SNR = input$peak_snr,
                       span = input$peak_span * get_chanels(spc) / 100)
 
+    lines <- as.data.frame(pks)
+    lines$energy <- NA_real_
+    user_lines(lines)
+
     list(
       spectrum = spc_raw,
-      baseline = spc,
+      baseline = bsl,
+      lines = spc,
       peaks = pks,
-      name = input$select,
-      data = as.data.frame(spc_raw)
-    )
-  })
-  user_lines <- reactive({
-    try(
-      utils::read.table(
-        header = FALSE, sep = " ", dec = ".",
-        strip.white = TRUE, blank.lines.skip = TRUE,
-        col.names = c("chanel", "energy"),
-        colClasses = c("integer", "numeric"),
-        text = input$lines
-      ),
-      silent = TRUE
+      name = input$select
     )
   })
   plot_spectrum <- reactive({
@@ -86,7 +80,15 @@ module_energy_server <- function(input, output, session,
       ggplot2::theme_bw()
   })
   plot_baseline <- reactive({
-    plot(user_peaks()$baseline, user_peaks()$peaks) +
+    bsl <- user_peaks()$baseline
+    set_names(bsl) <- "Baseline"
+    plot(user_peaks()$spectrum, bsl) +
+      ggplot2::labs(title = user_peaks()$name) +
+      ggplot2::theme_bw() +
+      ggplot2::theme(legend.position = "none")
+  })
+  plot_peaks <- reactive({
+    plot(user_peaks()$lines, user_peaks()$peaks) +
       ggplot2::labs(title = user_peaks()$name) +
       ggplot2::theme_bw()
   })
@@ -108,16 +110,43 @@ module_energy_server <- function(input, output, session,
     updateSliderInput(session, inputId = "slice_range",
                       max = max_chanel, value = c(60, max_chanel))
   })
+  observeEvent(input$presets_lines, {
+    lines <- try(
+      utils::read.table(
+        header = FALSE, sep = " ", dec = ".",
+        strip.white = TRUE, blank.lines.skip = TRUE,
+        col.names = c("chanel", "energy"),
+        colClasses = c("integer", "numeric"),
+        text = input$presets_lines
+      ),
+      silent = TRUE
+    )
+    if (!inherits(lines, "try-error")) {
+      tmp <- user_lines()
+      if (nrow(tmp) > 0 && nrow(lines) > 0) {
+        req(input$presets_tolerance)
+        tol <- input$presets_tolerance
+        for (i in seq_len(nrow(lines))) {
+          b <- lines$chanel[i]
+          k <- which.min(abs(tmp$chanel - b))
+          a <- tmp$chanel[k]
+          if (a >= b - tol && a <= b + tol) {
+            tmp$energy[k] <- lines$energy[i]
+          }
+        }
+        user_lines(tmp)
+      }
+    }
+  })
+  observeEvent(input$input_lines_cell_edit, {
+    tmp <- user_lines()
+    tmp$energy <- as.numeric(input$input_lines_cell_edit$value)
+    user_lines(tmp)
+  })
   observeEvent(input$action, {
     spc <- user_peaks()$spectrum
-    pks <- user_peaks()$peaks
-    chanel <- get_chanels(pks)
-    energy <- vapply(
-      X = chanel,
-      FUN = function(i) input[[paste0("peak_", i)]],
-      FUN.VALUE = numeric(1)
-    )
-    set_energy(pks) <- energy
+    pks <- user_lines()
+    pks <- stats::na.omit(pks)
 
     # Calibrate energy scale
     spc_calib <- try(calibrate_energy(spc, pks))
@@ -149,11 +178,14 @@ module_energy_server <- function(input, output, session,
     )
   })
   # Render
-  output$plot_peaks <- plotly::renderPlotly({
+  output$plot_spectrum <- plotly::renderPlotly({
     plotly::ggplotly(plot_spectrum())
   })
   output$plot_baseline <- plotly::renderPlotly({
     plotly::ggplotly(plot_baseline())
+  })
+  output$plot_peaks <- plotly::renderPlotly({
+    plotly::ggplotly(plot_peaks())
   })
   output$calibration <- renderUI({
     spc <- user_spectrum()
@@ -179,36 +211,13 @@ module_energy_server <- function(input, output, session,
       )
     }
   })
-  output$input_peaks <- renderUI({
-    peaks <- as.data.frame(user_peaks()$peaks)
-    peaks$energy <- rep(NA_real_, nrow(peaks))
-
-    lines <- user_lines()
-    if (nrow(lines) != 0) {
-      req(input$lines_tolerance)
-      tol <- input$lines_tolerance
-      for (i in seq_len(nrow(lines))) {
-        b <- lines$chanel[i]
-        k <- which.min(abs(peaks$chanel - b))
-        a <- peaks$chanel[k]
-        if (a >= b - tol && a <= b + tol) {
-          peaks$energy[k] <- lines$energy[i]
-        }
-      }
-    }
-    lapply(
-      X = seq_len(nrow(peaks)),
-      FUN = function(i, peaks) {
-        ns <- session$ns
-        chanel <- peaks$chanel[[i]]
-        energy <- peaks$energy[[i]]
-        numericInput(
-          inputId = ns(paste0("peak_", chanel)),
-          label = paste0("Chanel ", chanel),
-          value = energy
-        )
-      },
-      peaks
+  output$input_lines <- DT::renderDT({
+    DT::datatable(
+      data = user_lines(),
+      options = list("searching" = FALSE,
+                     "paging" = FALSE),
+      editable = list(target = "column",
+                      disable = list(columns = 1))
     )
   })
   output$export_data <- downloadHandler(
@@ -240,14 +249,12 @@ module_energy_server <- function(input, output, session,
   output$export_baseline <- downloadHandler(
     filename = function() paste0(user_peaks()$name, ".pdf"),
     content = function(file) {
-      ggplot2::ggsave(file, plot = plot_baseline(),
+      fig <- if (input$show_baseline) plot_baseline() else plot_peaks()
+      ggplot2::ggsave(file, plot = fig,
                       width = user_settings$fig_width,
                       height = user_settings$fig_height,
                       units = user_settings$fig_units)
     },
     contentType = "application/pdf"
   )
-  output$lines_table <- renderTable({
-    if (class(user_lines()) != "try-error") user_lines()
-  })
 }

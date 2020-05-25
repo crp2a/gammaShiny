@@ -23,12 +23,37 @@ module_energy_ui <- function(id) {
               wellPanel(
                 helpText(
                   "Set the energy values (keV) corresponding to at least 3",
-                  "of the channels below, then click on", dQuote("calibrate.")
+                  "of the channels below (double click to edit the cells),",
+                  "then click on", dQuote("calibrate.")
                 ),
                 actionButton(inputId = ns("action"), "Calibrate"),
                 actionButton(inputId = ns("reset"), "Restore"),
                 tags$hr(),
-                uiOutput(outputId = ns("input_peaks"))
+                shinyWidgets::dropdownButton(
+                  icon = icon("sliders-h"),
+                  tags$h3("Presets"),
+                  helpText(
+                    "You can define channel-energy pairs (in keV) to pre-fill",
+                    "the values to be used for the energy scale calibration.",
+                    "Values must be separated by a blank space,",
+                    "each pair must be on its own line.",
+                    "A tolerance (in chanel) must be set to provide the limits",
+                    "between which we can expect to find the specified chanels."
+                  ),
+                  textAreaInput(
+                    inputId = ns("presets_lines"),
+                    label = "Chanel-energy pairs",
+                    value = "", width = NULL,
+                    rows = 8, placeholder = "76 238.63"
+                    # 76 238.63\n465 1460.82\n830 2614.51
+                  ),
+                  numericInput(
+                    inputId = ns("presets_tolerance"),
+                    label = "Tolerance (in chanel)",
+                    value = 5, min = 1, max = 50, step = 1
+                  )
+                ),
+                dataTableOutput(outputId = ns("input_lines"))
               )
             ),
             column(
@@ -56,7 +81,7 @@ module_energy_ui <- function(id) {
               column(
                 width = 12,
                 style = "margin-top: 25px;",
-                plotly::plotlyOutput(outputId = ns("plot_peaks"))
+                plotly::plotlyOutput(outputId = ns("plot_spectrum"))
               )
             )
           )
@@ -73,11 +98,22 @@ module_energy_ui <- function(id) {
             downloadButton(
               outputId = ns("export_baseline"),
               label = "Export plot"
-            )
+            ),
+            checkboxInput(inputId = ns("show_baseline"),
+                          label = "Show baseline", value = FALSE)
           ),
           fluidRow(
             style = "clear: both;",
-            plotly::plotlyOutput(outputId = ns("plot_baseline"))
+            conditionalPanel(
+              ns = ns,
+              condition = "input.show_baseline",
+              plotly::plotlyOutput(outputId = ns("plot_baseline"))
+            ),
+            conditionalPanel(
+              ns = ns,
+              condition = "!input.show_baseline",
+              plotly::plotlyOutput(outputId = ns("plot_peaks"))
+            )
           ),
           fluidRow(
             column(
@@ -159,44 +195,6 @@ module_energy_ui <- function(id) {
                 label = "Half window size",
                 min = 0, max = 100, value = 5, step = 1
               )
-            )
-          )
-        ), # End tabPanel
-        tabPanel(
-          "Presets",
-          icon = icon("sliders-h"),
-          fluidRow(
-            style = "margin-top: 25px;",
-            column(
-              width = 4,
-              wellPanel(
-                helpText(
-                  "You can define channel-energy pairs (in keV) to pre-fill",
-                  "the values to be used for the energy scale calibration.",
-                  "Values must be separated by a blank space,",
-                  "each pair must be on its own line.",
-                  "A tolerance (in chanel) must be set to provide the limits",
-                  "between which we can expect to find the specified chanels."
-                )
-              )
-            ),
-            column(
-              width = 4,
-              textAreaInput(
-                inputId = ns("lines"),
-                label = "Chanel-energy pairs",
-                value = "", width = NULL,
-                rows = 8, placeholder = "76 238.63\n465 1460.82\n830 2614.51"
-              ),
-              numericInput(
-                inputId = ns("lines_tolerance"),
-                label = "Tolerance (in chanel)",
-                value = 5, min = 1, max = 50, step = 1
-              )
-            ),
-            column(
-              width = 4,
-              tableOutput(outputId = ns("lines_table"))
             )
           )
         ) # End tabPanel
