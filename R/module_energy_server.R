@@ -112,6 +112,7 @@ module_energy_server <- function(input, output, session,
   })
   observeEvent({
     user_data$spectra
+    input$select
     input$presets_lines
     }, {
       presets <- try(
