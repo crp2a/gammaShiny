@@ -11,16 +11,8 @@
 #' @export
 module_import_server <- function(input, output, session,
                                  user_data, user_settings) {
-  user_files <- reactive({
-    # If no file is selected, don't do anything
-    validate(need(input$files, message = FALSE))
-    input$files
-  })
   user_spectra <- reactive({
-    validate(
-      need(!is.null(user_data$spectra), message = FALSE),
-      need(!is.null(input$select) && input$select != "", message = FALSE)
-    )
+    req(user_data$spectra, input$select)
     user_data$spectra[input$select]
   })
   user_table <- reactive({ summarise(user_spectra()) })
@@ -30,24 +22,35 @@ module_import_server <- function(input, output, session,
       ggplot2::theme_bw() +
       user_settings$fig_scale
   })
-  observe({
+  observeEvent(input$files, {
+    req(input$files)
+
+    # Get previous data
+    old <- user_data
+
     # Return a GammaSpectra object
-    spc_name <- tools::file_path_sans_ext(user_files()$name)
-    spc_data <- gamma::read(user_files()$datapath)
-    spc_data <- methods::as(spc_data, "GammaSpectra")
+    spc_name <- tools::file_path_sans_ext(input$files$name)
+    spc_data <- gamma::read(input$files$datapath)
     set_names(spc_data) <- spc_name
 
+    # Keep existing data
+    new <- list(
+      spc_data = methods::as(c(old$spectra, spc_data), "GammaSpectra"),
+      spc_names = c(old$names, spc_name),
+      spc_raw = methods::as(c(old$raw, spc_data), "GammaSpectra")
+    )
+
     # Store data
-    user_data$spectra <- spc_data
-    user_data$names <- spc_name
-    user_data$raw <- spc_data
+    user_data$spectra <- new$spc_data
+    user_data$names <- new$spc_name
+    user_data$raw <- new$spc_raw
 
     # Update UI
     shinyWidgets::updatePickerInput(
       session,
       inputId = "select",
-      choices = spc_name,
-      selected = spc_name
+      choices = new$spc_name,
+      selected = new$spc_name
     )
   })
   # Render

@@ -13,7 +13,6 @@ module_energy_server <- function(input, output, session,
                                  user_data, user_settings) {
   user_lines <- reactiveVal(data.frame())
   user_spectrum <- reactive({
-    # Validation
     req(user_data$spectra, input$select)
     user_data$spectra[[input$select]]
   })

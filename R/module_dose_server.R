@@ -12,35 +12,13 @@
 module_dose_server <- function(input, output, session,
                                user_data, user_settings) {
   # Set an environment to store the calibration curve
-  # (should be set in global.R; prevents warning in R CMD Check)
-  if (!exists("env_calibration")) env_calibration <- new.env()
+  env_calibration <- new.env()
+  utils::data("BDX_LaBr_1", package = "gamma", envir = env_calibration)
+  utils::data("AIX_NaI_1", package = "gamma", envir = env_calibration)
 
   user_files <- reactive({
-    # If no file is selected, don't do anything
-    validate(need(input$files, message = FALSE))
+    req(input$files)
     input$files
-  })
-  observe({
-    cv_name <- tools::file_path_sans_ext(user_files()$name)
-    cv_data <- readRDS(user_files()$datapath)
-    if (!methods::is(cv_data, "CalibrationCurve")) {
-      shinyWidgets::sendSweetAlert(
-        session = session,
-        title = "Calibration Curve",
-        text = "Your file is not a valid calibration curve.",
-        type = "error"
-      )
-    } else {
-      # Assign to environment
-      assign(cv_name, cv_data, env_calibration)
-      # Update UI
-      updateSelectInput(
-        session,
-        inputId = "select_curve",
-        choices = ls(envir = env_calibration),
-        selected = cv_name
-      )
-    }
   })
   user_spectra <- reactive({
     req(user_data$spectra, input$select)
@@ -63,6 +41,28 @@ module_dose_server <- function(input, output, session,
         invokeRestart("muffleWarning")
       }
     )
+  })
+  observe({
+    cv_name <- tools::file_path_sans_ext(user_files()$name)
+    cv_data <- readRDS(user_files()$datapath)
+    if (!methods::is(cv_data, "CalibrationCurve")) {
+      shinyWidgets::sendSweetAlert(
+        session = session,
+        title = "Calibration Curve",
+        text = "Your file is not a valid calibration curve.",
+        type = "error"
+      )
+    } else {
+      # Assign to environment
+      assign(cv_name, cv_data, env_calibration)
+      # Update UI
+      updateSelectInput(
+        session,
+        inputId = "select_curve",
+        choices = ls(envir = env_calibration),
+        selected = cv_name
+      )
+    }
   })
   observeEvent(user_data$spectra, {
     req(user_data$spectra)
