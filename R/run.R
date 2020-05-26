@@ -8,6 +8,8 @@
 #'  (see details). Any unambiguous substring can be given.
 #' @param browser A \code{\link{logical}} scalar: should the app be run in
 #'  the browser?
+#' @param display A \code{\link{character}} string specifying the mode in which
+#'  to display the application (see \code{\link[shiny]{runApp}}).
 #' @details
 #'  \tabular{ll}{
 #'   **Application name** \tab  **Keyword** \cr
@@ -24,10 +26,11 @@
 #' @author N. Frerebeau
 #' @export
 run_app <- function(app = c("doserate", "calibration"),
-                    browser = TRUE) {
+                    browser = TRUE, display = "auto") {
   app <- match.arg(app, several.ok = FALSE)
   shiny::shinyAppDir(
     appDir = system.file(app, package = "gammaShiny"),
-    options = list(launch.browser = browser)
+    options = list(launch.browser = browser,
+                   display.mode = display)
   )
 }

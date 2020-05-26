@@ -4,7 +4,7 @@
 \alias{run_app}
 \title{Run a Shiny App}
 \usage{
-run_app(app = c("doserate", "calibration"), browser = TRUE)
+run_app(app = c("doserate", "calibration"), browser = TRUE, display = "auto")
 }
 \arguments{
 \item{app}{A \code{\link{character}} string specifying the Shiny application
@@ -13,6 +13,9 @@ to run. It must be one of "\code{doserate}" or "\code{calibration}"
 
 \item{browser}{A \code{\link{logical}} scalar: should the app be run in
 the browser?}
+
+\item{display}{A \code{\link{character}} string specifying the mode in which
+to display the application (see \code{\link[shiny]{runApp}}).}
 }
 \value{
 A \pkg{shiny} application object.
