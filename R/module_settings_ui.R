@@ -15,16 +15,18 @@ module_settings_ui <- function(id) {
       fluidRow(
         column(
           width = 3,
-          h5("Print options"),
+          h4("Bookmarking"),
+          bookmarkButton(),
+          tags$p(textOutput(outputId = ns("last_saved"))),
+          tags$br(),
+          h4("Print options"),
           numericInput(
             inputId = ns("digits"),
             label = "Significant digits",
             value = 2, min = 1, max = 7, step = 1
-          )
-        ),
-        column(
-          width = 3,
-          h5("Graphical output"),
+          ),
+          tags$br(),
+          h4("Graphical output"),
           numericInput(
             inputId = ns("fig_width"),
             label = "Figure width",
@@ -48,13 +50,9 @@ module_settings_ui <- function(id) {
                         "pale", "dark", "light", "discrete rainbow")
           )
         ),
-        column(width = 3),
-        column(width = 3)
-      ),
-      fluidRow(
         column(
-          width = 12,
-          h5("Session information"),
+          width = 9,
+          h4("Session information"),
           verbatimTextOutput(outputId = ns("session"))
         )
       )

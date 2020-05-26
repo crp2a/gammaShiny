@@ -41,5 +41,19 @@ module_settings_server <- function(input, output, session, user_settings) {
     user_settings$fig_scale <- scale
   })
   # Render
+  output$last_saved <- renderText({
+    req(user_settings$saved)
+    paste("Last saved at", user_settings$saved)
+  })
   output$session <- renderPrint({ utils::sessionInfo() })
+  # Bookmark
+  onBookmark(function(state) {
+    user_settings$saved <- Sys.time()
+    # state is a mutable reference object,
+    # we can add arbitrary values to it.
+    state$values$time <- user_settings$saved
+  })
+  onRestore(function(state) {
+    user_settings$saved <- state$values$time
+  })
 }

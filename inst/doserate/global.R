@@ -1,19 +1,20 @@
 ## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-## Title:   Dose Rate Estimation
+## Title:   Dose Rate Estimation App
 ## Authors: Nicolas Frerebeau, Université Bordeaux Montaigne (France)
 ##          Brice Lebrun, Université Bordeaux Montaigne (France)
 ## Contact: nicolas.frerebeau@u-bordeaux-montainge.fr
 ##++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-## Load packages ===============================================================
+## Clean current environment ===================================================
 rm(list = ls())
-library(gamma)
+
+## Load packages ===============================================================
 library(gammaShiny)
 
 ## Set Shiny settings ==========================================================
 options(shiny.maxRequestSize = 30*1024^2)
 enableBookmarking(store = "server")
-env_current <- environment()
+# onStop()
 
 ## Load datasets ===============================================================
 env_calibration <- new.env()

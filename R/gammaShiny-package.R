@@ -54,6 +54,6 @@
 #' selectInput showNotification sliderInput tabPanel tabsetPanel tagList tags
 #' textAreaInput uiOutput updateSelectInput updateSliderInput validate
 #' verbatimTextOutput navbarPage wellPanel enableBookmarking callModule
-#' tableOutput
+#' tableOutput stopApp bookmarkButton onBookmark onRestore textOutput
 #' @importFrom shinyWidgets dropdownButton pickerInput
 NULL
