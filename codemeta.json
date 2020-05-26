@@ -74,12 +74,6 @@
   "softwareRequirements": [
     {
       "@type": "SoftwareApplication",
-      "identifier": "R",
-      "name": "R",
-      "version": ">= 3.6"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "DT",
       "name": "DT",
       "provider": {
@@ -208,7 +202,7 @@
     }
   ],
   "releaseNotes": "https://github.com/crp2a/gammaShiny/blob/master/NEWS.md",
-  "fileSize": "275.694KB",
+  "fileSize": "275.989KB",
   "contIntegration": [
     "https://ci.appveyor.com/project/nfrerebeau/gammaShiny/branch/master",
     "https://travis-ci.org/crp2a/gammaShiny",
