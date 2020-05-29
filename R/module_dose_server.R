@@ -32,7 +32,7 @@ module_dose_server <- function(input, output, session,
     req(input$sigma, input$epsilon)
     withCallingHandlers(
       {
-        predict_dose(user_curve(), user_spectra(),
+        dose_predict(user_curve(), user_spectra(),
                      sigma = input$sigma, epsilon = input$epsilon / 100)
       },
       warning = function(e) {

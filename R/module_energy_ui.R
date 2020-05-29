@@ -118,12 +118,12 @@ module_energy_ui <- function(id) {
           fluidRow(
             column(
               width = 3,
-              h5("1. Drop chanels"),
+              h4("1. Drop chanels"),
               sliderInput(
                 inputId = ns("slice_range"), label = "Chanels to keep",
                 min = 1, max = 2048, value = c(1, 2048), step = 5
               ),
-              h5("2. Stabilize signal"),
+              h4("2. Stabilize signal"),
               selectInput(
                 inputId = ns("stabilize_method"),
                 label = "Method",
@@ -133,7 +133,7 @@ module_energy_ui <- function(id) {
             ),
             column(
               width = 3,
-              h5("3. Smooth signal"),
+              h4("3. Smooth signal"),
               selectInput(
                 inputId = ns("smooth_method"),
                 label = "Method",
@@ -153,32 +153,50 @@ module_energy_ui <- function(id) {
             ),
             column(
               width = 3,
-              h5("4. Remove baseline"),
+              h4("4. Remove baseline"),
               selectInput(
                 inputId = ns("baseline_method"),
                 label = "Method",
                 selected = 1,
-                choices = list("SNIP")
+                choices = list("SNIP", "rubberband")
               ),
-              checkboxInput(
-                inputId = ns("baseline_lls"),
-                label = "LLS",
-                value = FALSE
+              conditionalPanel(
+                ns = ns,
+                condition = "input.baseline_method == 'SNIP'",
+                checkboxInput(
+                  inputId = ns("baseline_snip_lls"),
+                  label = "LLS",
+                  value = FALSE
+                ),
+                checkboxInput(
+                  inputId = ns("baseline_snip_decreasing"),
+                  label = "Decreasing",
+                  value = FALSE
+                ),
+                numericInput(
+                  inputId = ns("baseline_snip_n"),
+                  label = "Iterations",
+                  value = 100, min = 10, max = 500, step = 10
+                )
               ),
-              checkboxInput(
-                inputId = ns("baseline_decreasing"),
-                label = "Decreasing",
-                value = FALSE
-              ),
-              numericInput(
-                inputId = ns("baseline_k"),
-                label = "Iterations",
-                value = 100, min = 10, max = 500, step = 10
+              conditionalPanel(
+                ns = ns,
+                condition = "input.baseline_method == 'rubberband'",
+                numericInput(
+                  inputId = ns("baseline_rubber_noise"),
+                  label = "Noise",
+                  value = 0, min = 0, max = 100, step = 1
+                ),
+                checkboxInput(
+                  inputId = ns("baseline_rubber_spline"),
+                  label = "Spline interpolation",
+                  value = TRUE
+                )
               )
             ),
             column(
               width = 3,
-              h5("5. Detect peaks"),
+              h4("5. Detect peaks"),
               selectInput(
                 inputId = ns("peak_method"),
                 label = "Method",

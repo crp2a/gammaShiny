@@ -24,8 +24,11 @@ module_energy_server <- function(input, output, session,
            "The window size must be an odd integer (smoothing)."),
       need(!is.null(input$smooth_p) && input$smooth_p != "",
            "The polynomial degree must be set (smoothing)."),
-      need(!is.null(input$baseline_k) && input$baseline_k != "",
+      need(!is.null(input$baseline_snip_n) && input$baseline_snip_n != "",
            "The number of iteration must be set (baseline)."),
+      need(!is.null(input$baseline_rubber_noise) &&
+             input$baseline_rubber_noise != "",
+           "The noise must be set (baseline)."),
       need(!is.null(input$peak_snr) && input$peak_snr != "",
            "The signal-to-noise-ratio must be set (peak search).")
     )
@@ -36,7 +39,7 @@ module_energy_server <- function(input, output, session,
     # Drop chanels
     n <- input$slice_range
     index <- seq(from = n[[1]], to = n[[2]], by = 1)
-    spc <- slice_signal(spc_raw, index)
+    spc <- signal_slice(spc_raw, index)
 
     # Transform intensities
     fun <- switch(
@@ -44,21 +47,26 @@ module_energy_server <- function(input, output, session,
       none = function(x) x,
       sqrt = sqrt
     )
-    spc <- stabilize_signal(spc, transformation = fun)
+    spc <- signal_stabilize(spc, f = fun)
 
     # Smooth intensities
-    spc <- smooth_signal(spc, method = input$smooth_method,
+    spc <- signal_smooth(spc, method = input$smooth_method,
                          m = input$smooth_m, p = input$smooth_p)
 
-    # Remove baseline
-    bsl <- estimate_baseline(spc, method = input$baseline_method,
-                             LLS = input$baseline_lls,
-                             decreasing = input$baseline_decreasing,
-                             k = input$baseline_k)
+    # Estimate and remove baseline
+    bsl <- baseline(
+      spc,
+      method = input$baseline_method,
+      LLS = input$baseline_snip_lls,
+      decreasing = input$baseline_snip_decreasing,
+      n = input$baseline_snip_n,
+      noise = input$baseline_rubber_noise,
+      spline = input$baseline_rubber_spline
+    )
     spc <- spc - bsl
 
     # Detect peaks
-    pks <- find_peaks(spc, method = input$peak_method, SNR = input$peak_snr,
+    pks <- peaks_find(spc, method = input$peak_method, SNR = input$peak_snr,
                       span = input$peak_span * get_chanels(spc) / 100)
 
     lines <- as.data.frame(pks)
@@ -154,7 +162,7 @@ module_energy_server <- function(input, output, session,
     pks <- stats::na.omit(pks)
 
     # Calibrate energy scale
-    spc_calib <- try(calibrate_energy(spc, pks))
+    spc_calib <- try(energy_calibrate(spc, pks))
     # Update spectrum
     if (inherits(spc_calib, "try-error")) {
       shinyWidgets::sendSweetAlert(
