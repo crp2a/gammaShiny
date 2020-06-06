@@ -28,6 +28,7 @@
 run_app <- function(app = c("doserate", "calibration"),
                     browser = TRUE, display = "auto") {
   app <- match.arg(app, several.ok = FALSE)
+  if (app == "calibration") stop("Work in progress!", call. = FALSE)
   shiny::shinyAppDir(
     appDir = system.file(app, package = "gammaShiny"),
     options = list(launch.browser = browser,
