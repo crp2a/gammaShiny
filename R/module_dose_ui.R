@@ -41,7 +41,7 @@ module_dose_ui <- function(id) {
             selected = NULL,
             choices = list(
               Choose = "",
-              IRAMAT = c(BDX_LaBr_1 = "BDX_LaBr_1"),
+              CRP2A = c(BDX_LaBr = "BDX_LaBr_1"),
               CEREGE = c(AIX_NaI = "AIX_NaI_1")
             )
           )
