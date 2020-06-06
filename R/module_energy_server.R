@@ -54,7 +54,7 @@ module_energy_server <- function(input, output, session,
                          m = input$smooth_m, p = input$smooth_p)
 
     # Estimate and remove baseline
-    bsl <- baseline(
+    bsl <- signal_baseline(
       spc,
       method = input$baseline_method,
       LLS = input$baseline_snip_lls,
