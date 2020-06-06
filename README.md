@@ -8,11 +8,11 @@
 [![R build
 status](https://github.com/crp2a/gammaShiny/workflows/R-CMD-check/badge.svg)](https://github.com/crp2a/gammaShiny/actions)
 
-[![Project Status: WIP – Initial development is in progress, but there
-has not yet been a stable, usable release suitable for the
-public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 
 <!-- [![DOI](https://zenodo.org/badge/DOI/xxx)](xxx) -->
 
@@ -36,10 +36,10 @@ remotes::install_github("crp2a/gammaShiny")
 ## Usage
 
 ``` r
-## Load the package
+# Load the package
 library(gammaShiny)
 
-## Run the app for gamma dose rate estimation
+# Run the app for gamma dose rate estimation
 run_app("doserate")
 ```
 
