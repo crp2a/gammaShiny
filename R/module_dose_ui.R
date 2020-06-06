@@ -1,6 +1,6 @@
 #' Dose Rate UI
 #'
-#' @param id XXX.
+#' @param id A \code{\link{character}} vector to be used for the namespace.
 #' @seealso \link{module_dose_server}
 #' @family module
 #' @export

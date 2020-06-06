@@ -7,7 +7,7 @@
 module_energy_ui(id)
 }
 \arguments{
-\item{id}{XXX.}
+\item{id}{A \code{\link{character}} vector to be used for the namespace.}
 }
 \description{
 Energy Calibration UI

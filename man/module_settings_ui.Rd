@@ -7,7 +7,7 @@
 module_settings_ui(id)
 }
 \arguments{
-\item{id}{XXX.}
+\item{id}{A \code{\link{character}} vector to be used for the namespace.}
 }
 \description{
 Settings UI
