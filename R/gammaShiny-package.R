@@ -16,8 +16,8 @@
 #'
 #' \strong{Package maintainer}
 #'
-#' Nicolas Frerebeau\cr
-#' \email{nicolas.frerebeau@@u-bordeaux-montaigne.fr}
+#' Brice Lebrun\cr
+#' \email{brice.lebrun@@u-bordeaux-montaigne.fr}
 #'
 #' IRAMAT-CRP2A (UMR 5060)\cr
 #' Maison de l'Archéologie\cr

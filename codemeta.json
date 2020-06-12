@@ -5,7 +5,7 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "gammaShiny",
-  "description": "A collection of 'shiny' applications for the R package 'gamma'.",
+  "description": "A collection of 'shiny' applications for the R\n    package 'gamma'.",
   "name": "gammaShiny: 'Shiny' Applications for the R Package 'gamma'",
   "codeRepository": "https://github.com/crp2a/gammaShiny",
   "relatedLink": "https://crp2a.github.io/gammaShiny",
@@ -51,10 +51,10 @@
   "maintainer": [
     {
       "@type": "Person",
-      "givenName": "Nicolas",
-      "familyName": "Frerebeau",
-      "email": "nicolas.frerebeau@u-bordeaux-montaigne.fr",
-      "@id": "https://orcid.org/0000-0001-5759-4944"
+      "givenName": "Brice",
+      "familyName": "Lebrun",
+      "email": "brice.lebrun@u-bordeaux-montaigne.fr",
+      "@id": "https://orcid.org/0000-0001-7503-8685"
     }
   ],
   "softwareSuggestions": [
@@ -122,18 +122,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "knitr",
-      "name": "knitr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=knitr"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "khroma",
       "name": "khroma",
       "provider": {
@@ -143,6 +131,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=khroma"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "knitr",
+      "name": "knitr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=knitr"
     },
     {
       "@type": "SoftwareApplication",
@@ -202,7 +202,7 @@
     }
   ],
   "releaseNotes": "https://github.com/crp2a/gammaShiny/blob/master/NEWS.md",
-  "fileSize": "275.989KB",
+  "fileSize": "276.565KB",
   "contIntegration": [
     "https://ci.appveyor.com/project/nfrerebeau/gammaShiny/branch/master",
     "https://travis-ci.org/crp2a/gammaShiny",
@@ -238,7 +238,8 @@
     "geochronology",
     "archaeology",
     "r-package",
-    "shiny-applications"
+    "shiny-applications",
+    "shiny-apps"
   ],
   "readme": "https://github.com/crp2a/gammaShiny/blob/master/README.md"
 }

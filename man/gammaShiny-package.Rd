@@ -9,7 +9,8 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-A collection of 'shiny' applications for the R package 'gamma'.
+A collection of 'shiny' applications for the R
+    package 'gamma'.
 }
 \details{
 \tabular{ll}{
@@ -44,8 +45,8 @@ Useful links:
 
 \strong{Package maintainer}
 
-Nicolas Frerebeau\cr
-\email{nicolas.frerebeau@u-bordeaux-montaigne.fr}
+Brice Lebrun\cr
+\email{brice.lebrun@u-bordeaux-montaigne.fr}
 
 IRAMAT-CRP2A (UMR 5060)\cr
 Maison de l'Archéologie\cr
