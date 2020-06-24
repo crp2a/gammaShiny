@@ -21,7 +21,7 @@ to display the application (see \code{\link[shiny]{runApp}}).}
 A \pkg{shiny} application object.
 }
 \description{
-A wrapper for \code{\link[shiny]{shinyAppDir}}.
+A wrapper for \code{\link[shiny:shinyApp]{shinyAppDir}}.
 }
 \details{
 \tabular{ll}{

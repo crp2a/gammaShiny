@@ -2,7 +2,7 @@
 
 #' Run a Shiny App
 #'
-#' A wrapper for \code{\link[shiny]{shinyAppDir}}.
+#' A wrapper for \code{\link[shiny:shinyApp]{shinyAppDir}}.
 #' @param app A \code{\link{character}} string specifying the Shiny application
 #'  to run. It must be one of "\code{doserate}" or "\code{calibration}"
 #'  (see details). Any unambiguous substring can be given.
