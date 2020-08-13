@@ -43,7 +43,7 @@ module_import_ui <- function(id) {
             radioButtons(
               inputId = ns("xaxis"),
               label = "X axis",
-              choices = c("chanel", "energy")
+              choices = c("channel", "energy")
             ),
             radioButtons(
               inputId = ns("yaxis"),

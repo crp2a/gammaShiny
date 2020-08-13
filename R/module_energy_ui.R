@@ -37,12 +37,12 @@ module_energy_ui <- function(id) {
                     "the values to be used for the energy scale calibration.",
                     "Values must be separated by a blank space,",
                     "each pair must be on its own line.",
-                    "A tolerance (in chanel) must be set to provide the limits",
-                    "between which we can expect to find the specified chanels."
+                    "A tolerance (in channel) must be set to provide the limits",
+                    "between which we can expect to find the specified channels."
                   ),
                   textAreaInput(
                     inputId = ns("presets_lines"),
-                    label = "Chanel-energy pairs",
+                    label = "Channel-energy pairs",
                     value = "", width = NULL,
                     rows = 8, placeholder = "76 238.63"
                     # 76 238.63\n465 1460.82\n830 2614.51
@@ -118,9 +118,9 @@ module_energy_ui <- function(id) {
           fluidRow(
             column(
               width = 3,
-              h4("1. Drop chanels"),
+              h4("1. Drop channels"),
               sliderInput(
-                inputId = ns("slice_range"), label = "Chanels to keep",
+                inputId = ns("slice_range"), label = "Channels to keep",
                 min = 1, max = 2048, value = c(1, 2048), step = 5
               ),
               h4("2. Stabilize signal"),

@@ -73,7 +73,7 @@ module_import_server <- function(input, output, session,
       escape = FALSE,
       digits = user_settings$digits,
       row.names = FALSE,
-      col.names = c("Name", "Date", "Live time", "Real time", "Chanels",
+      col.names = c("Name", "Date", "Live time", "Real time", "Channels",
                     "Min.", "Max.")
     )
     tbl <- kableExtra::kable_styling(

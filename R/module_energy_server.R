@@ -36,7 +36,7 @@ module_energy_server <- function(input, output, session,
     # Get a GammaSpectrum object
     spc_raw <- user_spectrum()
 
-    # Drop chanels
+    # Drop channels
     n <- input$slice_range
     index <- seq(from = n[[1]], to = n[[2]], by = 1)
     spc <- signal_slice(spc_raw, index)
@@ -67,7 +67,7 @@ module_energy_server <- function(input, output, session,
 
     # Detect peaks
     pks <- peaks_find(spc, method = input$peak_method, SNR = input$peak_snr,
-                      span = input$peak_span * get_chanels(spc) / 100)
+                      span = input$peak_span * get_channels(spc) / 100)
 
     lines <- as.data.frame(pks)
     lines$energy <- NA_real_
@@ -113,9 +113,9 @@ module_energy_server <- function(input, output, session,
     # Update UI
     req(input$select)
     spc <- user_spectrum()
-    max_chanel <- max(get_chanels(spc))
+    max_channel <- max(get_channels(spc))
     updateSliderInput(session, inputId = "slice_range",
-                      max = max_chanel, value = c(60, max_chanel))
+                      max = max_channel, value = c(60, max_channel))
   })
   observeEvent({
     user_data$spectra
@@ -126,7 +126,7 @@ module_energy_server <- function(input, output, session,
       utils::read.table(
         header = FALSE, sep = " ", dec = ".",
         strip.white = TRUE, blank.lines.skip = TRUE,
-        col.names = c("chanel", "energy"),
+        col.names = c("channel", "energy"),
         colClasses = c("integer", "numeric"),
         text = input$presets_lines
       ),
@@ -140,9 +140,9 @@ module_energy_server <- function(input, output, session,
         req(input$presets_tolerance)
         tol <- input$presets_tolerance
         for (i in seq_len(nrow(presets))) {
-          b <- presets$chanel[i]
-          k <- which.min(abs(tmp$chanel - b))
-          a <- tmp$chanel[k]
+          b <- presets$channel[i]
+          k <- which.min(abs(tmp$channel - b))
+          a <- tmp$channel[k]
           if (a >= b - tol && a <= b + tol) {
             tmp$energy[k] <- presets$energy[i]
           }
