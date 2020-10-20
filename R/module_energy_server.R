@@ -125,8 +125,8 @@ module_energy_server <- function(input, output, session,
     user_data$spectra
     input$select
     input$presets_lines
-    }, {
-      presets <- try(
+  }, {
+    presets <- try(
       utils::read.table(
         header = FALSE, sep = " ", dec = ".",
         strip.white = TRUE, blank.lines.skip = TRUE,
@@ -136,7 +136,7 @@ module_energy_server <- function(input, output, session,
       ),
       silent = TRUE
     )
-    if (!inherits(presets, "try-error")) {
+    if (!inherits(presets, "try-error") && nrow(presets) > 0) {
       tmp <- user_lines()
       if (nrow(tmp) > 0 && nrow(presets) == 0) {
         tmp$energy <- NA_real_

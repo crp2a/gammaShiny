@@ -15,10 +15,9 @@
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.3",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.3 (2020-02-29)",
+  "runtimePlatform": "R version 4.0.3 (2020-10-10)",
   "author": [
     {
       "@type": "Person",
@@ -89,6 +88,12 @@
       "identifier": "gamma",
       "name": "gamma",
       "version": ">= 0.2.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
       "sameAs": "https://github.com/crp2a/gamma"
     },
     {
@@ -201,17 +206,8 @@
       "name": "utils"
     }
   ],
-  "releaseNotes": "https://github.com/crp2a/gammaShiny/blob/master/NEWS.md",
-  "fileSize": "276.565KB",
-  "contIntegration": [
-    "https://ci.appveyor.com/project/nfrerebeau/gammaShiny/branch/master",
-    "https://travis-ci.org/crp2a/gammaShiny",
-    "https://codecov.io/gh/crp2a/gammaShiny"
-  ],
-  "developmentStatus": [
-    "https://www.repostatus.org/#wip",
-    "https://www.tidyverse.org/lifecycle/#experimental"
-  ],
+  "fileSize": "373.194KB",
+  "developmentStatus": ["https://www.repostatus.org/#active", "https://www.tidyverse.org/lifecycle/#maturing"],
   "citation": [
     {
       "@type": "SoftwareSourceCode",

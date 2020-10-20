@@ -22,9 +22,14 @@ module_energy_ui <- function(id) {
               width = 4,
               wellPanel(
                 helpText(
-                  "Set the energy values (keV) corresponding to at least 3",
-                  "of the channels below (double click to edit the cells),",
-                  "then click on", dQuote("calibrate.")
+                  tags$p(
+                    "Set the energy values (keV) corresponding to at least 3",
+                    "of the channels below, then click on", dQuote("calibrate.")
+                  ),
+                  tags$p(
+                    "Double click to edit the cells,",
+                    "then hit Ctrl+Enter to finish editing (or Esc to cancel)."
+                  )
                 ),
                 actionButton(inputId = ns("action"), "Calibrate"),
                 actionButton(inputId = ns("reset"), "Restore"),
