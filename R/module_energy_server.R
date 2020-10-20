@@ -109,7 +109,7 @@ module_energy_server <- function(input, output, session,
       session,
       inputId = "select",
       choices = user_data$names,
-      selected = user_data$names[[1L]]
+      selected = ifelse(input$select == "", user_data$names[[1L]], input$select)
     )
   })
   observeEvent(input$select, {
@@ -121,6 +121,7 @@ module_energy_server <- function(input, output, session,
                       max = max_channel, value = c(60, max_channel))
   })
   observeEvent({
+    user_lines()
     user_data$spectra
     input$select
     input$presets_lines
