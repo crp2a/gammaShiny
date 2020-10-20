@@ -29,7 +29,7 @@ module_dose_server <- function(input, output, session,
     get(input$select_curve, envir = env_calibration)
   })
   user_dose <- reactive({
-    req(input$sigma, input$epsilon)
+    req(input$sigma, input$epsilon, user_curve(), user_spectra())
     withCallingHandlers(
       {
         dose_predict(user_curve(), user_spectra(),

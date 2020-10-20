@@ -82,11 +82,13 @@ module_energy_server <- function(input, output, session,
     )
   })
   plot_spectrum <- reactive({
+    req(user_peaks())
     plot(user_peaks()$spectrum, user_peaks()$peaks) +
       ggplot2::labs(title = user_peaks()$name) +
       ggplot2::theme_bw()
   })
   plot_baseline <- reactive({
+    req(user_peaks())
     bsl <- user_peaks()$baseline
     set_names(bsl) <- "Baseline"
     plot(user_peaks()$spectrum, bsl) +
@@ -95,6 +97,7 @@ module_energy_server <- function(input, output, session,
       ggplot2::theme(legend.position = "none")
   })
   plot_peaks <- reactive({
+    req(user_peaks())
     plot(user_peaks()$lines, user_peaks()$peaks) +
       ggplot2::labs(title = user_peaks()$name) +
       ggplot2::theme_bw()

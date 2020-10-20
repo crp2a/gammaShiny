@@ -15,8 +15,15 @@ module_import_server <- function(input, output, session,
     req(user_data$spectra, input$select)
     user_data$spectra[input$select]
   })
-  user_table <- reactive({ summarise(user_spectra()) })
+  user_table <- reactive({
+    req(user_spectra())
+    summarise(user_spectra())
+  })
   plot_spectra <- reactive({
+    validate(
+      need(user_data$spectra, "Please import one or more spectra."),
+      need(input$select, "Please select one or more spectra.")
+    )
     plot(user_spectra(), xaxis = input$xaxis, yaxis = input$yaxis,
          select = input$select, facet = input$facet) +
       ggplot2::theme_bw() +
