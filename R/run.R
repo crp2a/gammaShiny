@@ -12,7 +12,7 @@
 #'  to display the application (see \code{\link[shiny]{runApp}}).
 #' @details
 #'  \tabular{ll}{
-#'   **Application name** \tab  **Keyword** \cr
+#'   \strong{Application name} \tab  \strong{Keyword} \cr
 #'   Dose rate estimation \tab \code{doserate} \cr
 #'   Calibration curve builder \tab \code{calibration} \cr
 #'  }
@@ -21,6 +21,14 @@
 #' run_app("doserate")
 #' run_app("calibration")
 #' }
+#' @note
+#'  Usefull presets for the energy scale calibration:
+#'  \tabular{ll}{
+#'   Channel \tab Energy (keV) \cr
+#'   76 \tab 238.63 \cr
+#'   465 \tab 1460.82 \cr
+#'   830 \tab 2614.51 \cr
+#'  }
 #' @return A \pkg{shiny} application object.
 #' @family shiny
 #' @author N. Frerebeau
