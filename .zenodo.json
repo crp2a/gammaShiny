@@ -1,0 +1,28 @@
+{
+    "title": "gammaShiny: 'Shiny' Applications for the R Package 'gamma'",
+    "description": "<p>A collection of 'shiny' applications for the R package 'gamma'.</p>",
+    "notes": "This work received a state financial support managed by the Agence Nationale de la Recherche (France) throught the program Investissements d'avenir (ref. 10-LABX-0052 and 11-IDEX-0001).",
+    "creators": [
+        {
+            "orcid": "0000-0001-5759-4944",
+            "affiliation": "Universit\u00e9 Bordeaux Montaigne",
+            "name": "Frerebeau, Nicolas"
+        },
+        {
+            "orcid": "0000-0001-7503-8685",
+            "affiliation": "Universit\u00e9 Bordeaux Montaigne",
+            "name": "Lebrun, Brice"
+        }
+    ],
+    "language": "eng",
+    "keywords": [
+        "archaeology",
+        "geochronology",
+        "luminescence dating",
+        "r package",
+        "shiny apps"
+    ],
+    "upload_type": "software",
+    "license": "GPL-3.0+",
+    "access_right": "open"
+}
