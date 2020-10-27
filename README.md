@@ -8,14 +8,16 @@
 [![R build
 status](https://github.com/crp2a/gammaShiny/workflows/R-CMD-check/badge.svg)](https://github.com/crp2a/gammaShiny/actions)
 
+![GitHub release (latest by
+date)](https://img.shields.io/github/v/release/crp2a/gammaShiny)
+
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle:
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 
-<!-- [![DOI](https://zenodo.org/badge/DOI/xxx)](xxx) -->
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4139005.svg)](https://doi.org/10.5281/zenodo.4139005)
 <!-- badges: end -->
 
 ## Overview
