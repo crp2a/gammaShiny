@@ -11,7 +11,7 @@
   "relatedLink": "https://crp2a.github.io/gammaShiny",
   "issueTracker": "https://github.com/crp2a/gammaShiny/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.1.0",
+  "version": "0.1.0.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -206,7 +206,7 @@
       "name": "utils"
     }
   ],
-  "fileSize": "373.194KB",
+  "fileSize": "372.783KB",
   "developmentStatus": ["https://www.repostatus.org/#active", "https://www.tidyverse.org/lifecycle/#maturing"],
   "citation": [
     {
@@ -225,7 +225,7 @@
         }
       ],
       "name": "{gammaShiny}: 'Shiny' Applications for the R Package 'gamma'",
-      "url": "https://doi.org/xxx",
+      "url": "https://doi.org/10.5281/zenodo.4139005",
       "description": "R package version 0.1.0"
     }
   ],
