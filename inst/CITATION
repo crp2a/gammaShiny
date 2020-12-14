@@ -1,19 +1,26 @@
-citHeader("To cite gamma in publications use:")
+citHeader("To cite gammaShiny in publications use:")
 
-citEntry(entry = "Manual",
-  title        = "{gammaShiny}: 'Shiny' Applications for the R Package 'gamma'",
-  author       = c(person("Nicolas", "Frerebeau", role = c("aut", "cre")),
-                   person("Brice", "Lebrun", role = "aut")),
+citEntry(entry = "Article",
+  title        = "Gamma: An R Package for Dose Rate Estimation from In-Situ Gamma-Ray Spectrometry Measurements",
+  author       = c(person("Brice", "Lebrun", role = c("aut", "cre")),
+                   person("Nicolas", "Frerebeau", role = "aut"),
+                   person("Guilhem", "Paradol", role = "aut"),
+                   person("Guillaume", "Guérin", role = "aut"),
+                   person("Norbert", "Mercier", role = "aut"),
+                   person("Chantal", "Tribolo", role = "aut"),
+                   person("Christelle", "Lahaye", role = "aut"),
+                   person("Magali", "Rizza", role = "aut")),
   year         = "2020",
-  organization = "Université Bordeaux Montaigne",
-  address      = "Pessac, France",
-  note         = "R package version 0.1.0",
-  url          = "https://doi.org/10.5281/zenodo.4139005",
+  journal      = "Ancient TL",
+  volume       = "38",
+  number       = "2",
+  pages        = "1-5",
+  url          = "",
 
   textVersion  =
-  paste("Frerebeau, Nicolas and Lebrun, Brice (2020).",
-        "gammaShiny: 'Shiny' Applications for the R Package 'gamma'.",
-        "R package version 0.1.0.",
-        "Université Bordeaux Montaigne, Pessac, France.",
-        "DOI 10.5281/zenodo.4139005.")
+  paste(
+    "Lebrun, Brice, Nicolas Frerebeau, Guilhem Paradol, Guillaume Guérin, Norbert Mercier, Chantal Tribolo, Christelle Lahaye, and Magalie Rizza. 2020.",
+    "Gamma: An R Package for Dose Rate Estimation from In-Situ Gamma-Ray Spectrometry Measurements.",
+    "Ancient TL 38 (2): 1-5."
+  )
 )

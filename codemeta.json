@@ -206,13 +206,18 @@
       "name": "utils"
     }
   ],
-  "fileSize": "372.783KB",
+  "fileSize": "374.031KB",
   "developmentStatus": ["https://www.repostatus.org/#active", "https://www.tidyverse.org/lifecycle/#maturing"],
   "citation": [
     {
-      "@type": "SoftwareSourceCode",
+      "@type": "ScholarlyArticle",
       "datePublished": "2020",
       "author": [
+        {
+          "@type": "Person",
+          "givenName": "Brice",
+          "familyName": "Lebrun"
+        },
         {
           "@type": "Person",
           "givenName": "Nicolas",
@@ -220,13 +225,47 @@
         },
         {
           "@type": "Person",
-          "givenName": "Brice",
-          "familyName": "Lebrun"
+          "givenName": "Guilhem",
+          "familyName": "Paradol"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Guillaume",
+          "familyName": "Guérin"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Norbert",
+          "familyName": "Mercier"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Chantal",
+          "familyName": "Tribolo"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Christelle",
+          "familyName": "Lahaye"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Magali",
+          "familyName": "Rizza"
         }
       ],
-      "name": "{gammaShiny}: 'Shiny' Applications for the R Package 'gamma'",
-      "url": "https://doi.org/10.5281/zenodo.4139005",
-      "description": "R package version 0.1.0"
+      "name": "Gamma: An R Package for Dose Rate Estimation from In-Situ Gamma-Ray Spectrometry Measurements",
+      "pagination": "1-5",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "issueNumber": "2",
+        "datePublished": "2020",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "38",
+          "name": "Ancient TL"
+        }
+      }
     }
   ],
   "keywords": [

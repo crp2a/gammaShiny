@@ -26,6 +26,13 @@ A collection of [**shiny**](https://shiny.rstudio.com) application that
 provides exhanced graphical user interfaces for the
 [**gamma**](https://github.com/crp2a/gamma) package.
 
+To cite **gammaShiny** in publications please use:
+
+> Lebrun, Brice, Nicolas Frerebeau, Guilhem Paradol, Guillaume Guérin,
+> Norbert Mercier, Chantal Tribolo, Christelle Lahaye, and Magalie
+> Rizza. 2020. Gamma: An R Package for Dose Rate Estimation from In-Situ
+> Gamma-Ray Spectrometry Measurements. *Ancient TL* 38 (2): 1-5.
+
 ## Installation
 
 Install the development version from GitHub with:
