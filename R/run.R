@@ -46,3 +46,7 @@ run_app <- function(app = c("doserate", "calibration"),
     options = list(launch.browser = browser, display.mode = display)
   )
 }
+
+#' @rdname run_app
+#' @export
+launch_app <- run_app

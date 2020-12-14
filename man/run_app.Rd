@@ -2,9 +2,16 @@
 % Please edit documentation in R/run.R
 \name{run_app}
 \alias{run_app}
+\alias{launch_app}
 \title{Run a Shiny App}
 \usage{
 run_app(app = c("doserate", "calibration"), browser = TRUE, display = "auto")
+
+launch_app(
+  app = c("doserate", "calibration"),
+  browser = TRUE,
+  display = "auto"
+)
 }
 \arguments{
 \item{app}{A \code{\link{character}} string specifying the Shiny application
