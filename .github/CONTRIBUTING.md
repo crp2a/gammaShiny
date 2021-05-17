@@ -15,7 +15,7 @@ Before you make a substantial pull request, you should always file an issue and 
 
 * We recommend that you create a Git branch for each pull request (PR).  
 * Look at the Travis and AppVeyor build status before and after making changes. The `README` should contain badges for any continuous integration services used by the package.  
-* Look at the [style guide](https://github.com/nfrerebeau/tabula/blob/master/.github/CODING_STYLE.md) before making changes. Please don't restyle code that has nothing to do with your PR.
+* Look at the [style guide](https://github.com/crp2a/gammaShiny/blob/master/.github/CODING_STYLE.md) before making changes. Please don't restyle code that has nothing to do with your PR.
 * We use [roxygen2](https://cran.r-project.org/package=roxygen2).  
 * We use [testthat](https://cran.r-project.org/package=testthat). Contributions with test cases included are easier to accept.  
 * For user-facing changes, add a bullet to the top of `NEWS.Rmd` below the current development version header describing the changes made followed by your GitHub username, and links to relevant issue(s)/PR(s).

@@ -5,8 +5,7 @@
 
 <!-- badges: start -->
 
-[![R build
-status](https://github.com/crp2a/gammaShiny/workflows/R-CMD-check/badge.svg)](https://github.com/crp2a/gammaShiny/actions)
+[![R-CMD-check](https://github.com/crp2a/gammaShiny/workflows/R-CMD-check/badge.svg)](https://github.com/crp2a/gammaShiny/actions)
 
 ![GitHub release (latest by
 date)](https://img.shields.io/github/v/release/crp2a/gammaShiny)
@@ -14,8 +13,6 @@ date)](https://img.shields.io/github/v/release/crp2a/gammaShiny)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4139005.svg)](https://doi.org/10.5281/zenodo.4139005)
 <!-- badges: end -->
@@ -26,16 +23,45 @@ A collection of [**shiny**](https://shiny.rstudio.com) application that
 provides exhanced graphical user interfaces for the
 [**gamma**](https://github.com/crp2a/gamma) package.
 
-To cite **gammaShiny** in publications please use:
+<details>
+<summary>
+<strong>How to cite</strong> (click to expand)
+</summary>
 
-> Lebrun, Brice, Nicolas Frerebeau, Guilhem Paradol, Guillaume Guérin,
-> Norbert Mercier, Chantal Tribolo, Christelle Lahaye, and Magalie
-> Rizza. 2020. Gamma: An R Package for Dose Rate Estimation from In-Situ
-> Gamma-Ray Spectrometry Measurements. *Ancient TL* 38 (2): 1-5.
+
+    To cite gammaShiny in publications use:
+
+      Lebrun, Brice, Nicolas Frerebeau, Guilhem Paradol, Guillaume Guérin,
+      Norbert Mercier, Chantal Tribolo, Christelle Lahaye, and Magalie
+      Rizza. 2020. Gamma: An R Package for Dose Rate Estimation from
+      In-Situ Gamma-Ray Spectrometry Measurements. Ancient TL 38 (2): 1-5.
+
+    Une entrée BibTeX pour les utilisateurs LaTeX est
+
+      @Article{,
+        title = {Gamma: An R Package for Dose Rate Estimation from In-Situ Gamma-Ray Spectrometry Measurements},
+        author = {Brice Lebrun and Nicolas Frerebeau and Guilhem Paradol and Guillaume Guérin and Norbert Mercier and Chantal Tribolo and Christelle Lahaye and Magali Rizza},
+        year = {2020},
+        journal = {Ancient TL},
+        volume = {38},
+        number = {2},
+        pages = {1-5},
+      }
+
+</details>
 
 ## Installation
 
-Install the development version from GitHub with:
+You can install the released version of **gammaShiny** from [our
+repository](https://github.com/crp2a/packages) with:
+
+``` r
+repos <- c("https://crp2a.github.io/packages", getOption("repos"))
+install.packages("gammaShiny", repos = repos, type = "source")
+```
+
+Or install the development version from [GitHub](https://github.com/)
+with:
 
 ``` r
 # install.packages("remotes")
