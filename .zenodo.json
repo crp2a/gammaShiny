@@ -27,6 +27,11 @@
         "shiny apps"
     ],
     "upload_type": "software",
+    "communities": [
+        {
+            "identifier": "archeosciences-bordeaux"
+        }
+    ],
     "license": "GPL-3.0+",
     "access_right": "open"
 }

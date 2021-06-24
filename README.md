@@ -52,20 +52,13 @@ provides exhanced graphical user interfaces for the
 
 ## Installation
 
-You can install the released version of **gammaShiny** from [our
-repository](https://github.com/crp2a/packages) with:
+You can install **gammaShiny** from [our
+repository](https://crp2a.r-universe.dev) with:
 
 ``` r
-repos <- c("https://crp2a.github.io/packages", getOption("repos"))
-install.packages("gammaShiny", repos = repos, type = "source")
-```
-
-Or install the development version from [GitHub](https://github.com/)
-with:
-
-``` r
-# install.packages("remotes")
-remotes::install_github("crp2a/gammaShiny")
+options(repos = c(crp2a = 'https://crp2a.r-universe.dev',
+                  CRAN = 'https://cloud.r-project.org'))
+install.packages("gammaShiny")
 ```
 
 ## Usage
