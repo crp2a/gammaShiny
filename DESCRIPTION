@@ -9,12 +9,20 @@ Authors@R:
              comment = c(ORCID = "0000-0001-5759-4944")),
       person(given = "Brice",
              family = "Lebrun",
-             role = c("aut", "cre"),
+             role = "aut",
              email = "brice.lebrun@u-bordeaux-montaigne.fr",
              comment = c(ORCID = "0000-0001-7503-8685")),
+      person(given = "Archéosciences Bordeaux",
+             role = "cre",
+             email = "services-archeosciences@u-bordeaux-montaigne.fr"),
       person(given = "Université Bordeaux Montaigne",
-             role = c("cph", "fnd")))
-Maintainer: Brice Lebrun <brice.lebrun@u-bordeaux-montaigne.fr>
+             role = c("cph", "fnd")),
+      person(given = "CNRS",
+             role = "fnd"),
+      person(given = "LabEx Sciences archéologiques de Bordeaux",
+             role = "fnd"),
+      person(given = "Idex Aix-Marseille",
+             role = "fnd"))
 Description: A collection of 'shiny' applications for the R
     package 'gamma'.
 License: GPL-3
@@ -41,7 +49,7 @@ Remotes:
     crp2a/gamma
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.1
 Collate: 
     'gammaShiny-package.R'
     'module_about_ui.R'

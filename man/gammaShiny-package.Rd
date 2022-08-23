@@ -7,10 +7,9 @@
 \alias{gammaShiny}
 \title{gammaShiny: 'Shiny' Applications for the R Package 'gamma'}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-A collection of 'shiny' applications for the R
-    package 'gamma'.
+A collection of 'shiny' applications for the R package 'gamma'.
 }
 \details{
 \tabular{ll}{

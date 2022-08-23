@@ -1,14 +1,10 @@
 {
-  "@context": [
-    "https://doi.org/10.5063/schema/codemeta-2.0",
-    "http://schema.org"
-  ],
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "gammaShiny",
-  "description": "A collection of 'shiny' applications for the R\n    package 'gamma'.",
+  "description": "A collection of 'shiny' applications for the R package 'gamma'.",
   "name": "gammaShiny: 'Shiny' Applications for the R Package 'gamma'",
   "codeRepository": "https://github.com/crp2a/gammaShiny",
-  "relatedLink": "https://crp2a.github.io/gammaShiny",
   "issueTracker": "https://github.com/crp2a/gammaShiny/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
   "version": "0.1.0.9000",
@@ -17,7 +13,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.0.3 (2020-10-10)",
+  "runtimePlatform": "R version 4.2.1 (2022-06-23)",
   "author": [
     {
       "@type": "Person",
@@ -34,7 +30,6 @@
       "@id": "https://orcid.org/0000-0001-7503-8685"
     }
   ],
-  "contributor": {},
   "copyrightHolder": [
     {
       "@type": "Organization",
@@ -45,15 +40,25 @@
     {
       "@type": "Organization",
       "name": "Université Bordeaux Montaigne"
+    },
+    {
+      "@type": "Organization",
+      "name": "CNRS"
+    },
+    {
+      "@type": "Organization",
+      "name": "LabEx Sciences archéologiques de Bordeaux"
+    },
+    {
+      "@type": "Organization",
+      "name": "Idex Aix-Marseille"
     }
   ],
   "maintainer": [
     {
-      "@type": "Person",
-      "givenName": "Brice",
-      "familyName": "Lebrun",
-      "email": "brice.lebrun@u-bordeaux-montaigne.fr",
-      "@id": "https://orcid.org/0000-0001-7503-8685"
+      "@type": "Organization",
+      "name": "Archéosciences Bordeaux",
+      "email": "services-archeosciences@u-bordeaux-montaigne.fr"
     }
   ],
   "softwareSuggestions": [
@@ -70,8 +75,8 @@
       "sameAs": "https://CRAN.R-project.org/package=testthat"
     }
   ],
-  "softwareRequirements": [
-    {
+  "softwareRequirements": {
+    "1": {
       "@type": "SoftwareApplication",
       "identifier": "DT",
       "name": "DT",
@@ -83,20 +88,14 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=DT"
     },
-    {
+    "2": {
       "@type": "SoftwareApplication",
       "identifier": "gamma",
       "name": "gamma",
       "version": ">= 0.2.0",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
       "sameAs": "https://github.com/crp2a/gamma"
     },
-    {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "ggplot2",
       "name": "ggplot2",
@@ -108,12 +107,12 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=ggplot2"
     },
-    {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "grDevices",
       "name": "grDevices"
     },
-    {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "kableExtra",
       "name": "kableExtra",
@@ -125,7 +124,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=kableExtra"
     },
-    {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "khroma",
       "name": "khroma",
@@ -137,7 +136,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=khroma"
     },
-    {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "knitr",
       "name": "knitr",
@@ -149,12 +148,12 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=knitr"
     },
-    {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "methods",
       "name": "methods"
     },
-    {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "plotly",
       "name": "plotly",
@@ -166,7 +165,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=plotly"
     },
-    {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "shiny",
       "name": "shiny",
@@ -178,7 +177,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=shiny"
     },
-    {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "shinyWidgets",
       "name": "shinyWidgets",
@@ -190,24 +189,24 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=shinyWidgets"
     },
-    {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "stats",
       "name": "stats"
     },
-    {
+    "13": {
       "@type": "SoftwareApplication",
       "identifier": "tools",
       "name": "tools"
     },
-    {
+    "14": {
       "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils"
-    }
-  ],
-  "fileSize": "374.031KB",
-  "developmentStatus": ["https://www.repostatus.org/#active", "https://www.tidyverse.org/lifecycle/#maturing"],
+    },
+    "SystemRequirements": null
+  },
+  "fileSize": "330.378KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -268,13 +267,9 @@
       }
     }
   ],
-  "keywords": [
-    "luminescence-dating",
-    "geochronology",
-    "archaeology",
-    "r-package",
-    "shiny-applications",
-    "shiny-apps"
-  ],
-  "readme": "https://github.com/crp2a/gammaShiny/blob/master/README.md"
+  "releaseNotes": "https://github.com/crp2a/gammaShiny/blob/master/NEWS.md",
+  "readme": "https://github.com/crp2a/gammaShiny/blob/master/README.md",
+  "contIntegration": "https://github.com/crp2a/gammaShiny/actions/workflows/R-CMD-check.yaml",
+  "developmentStatus": "https://www.repostatus.org/#active",
+  "keywords": ["luminescence-dating", "geochronology", "archaeology", "r-package", "shiny-apps"]
 }
