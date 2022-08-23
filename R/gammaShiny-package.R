@@ -43,8 +43,8 @@
 #' spec_color
 #' @importFrom knitr kable
 #' @importFrom khroma colour scale_color_discreterainbow scale_color_bright
-#' scale_color_contrast scale_color_vibrant scale_color_muted scale_color_pale
-#' scale_color_dark scale_color_light
+#' scale_color_highcontrast scale_color_vibrant scale_color_muted
+#' scale_color_pale scale_color_dark scale_color_light
 #' @importFrom methods as is
 #' @importFrom plotly ggplotly renderPlotly plotlyOutput
 #' @importFrom shiny numericInput NS actionButton checkboxInput column

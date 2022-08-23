@@ -24,7 +24,7 @@ module_settings_server <- function(input, output, session, user_settings) {
       input$fig_colour,
       `discrete rainbow` = khroma::scale_color_discreterainbow(),
       bright = khroma::scale_color_bright(),
-      contrast = khroma::scale_color_contrast(),
+      contrast = khroma::scale_color_highcontrast(),
       vibrant = khroma::scale_color_vibrant(),
       muted = khroma::scale_color_muted(),
       pale = khroma::scale_color_pale(),
