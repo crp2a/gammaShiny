@@ -5,10 +5,9 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/crp2a/gammaShiny/workflows/R-CMD-check/badge.svg)](https://github.com/crp2a/gammaShiny/actions)
+[![R-CMD-check](https://github.com/crp2a/gammaShiny/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/crp2a/gammaShiny/actions/workflows/R-CMD-check.yaml)
 
-![GitHub release (latest by
-date)](https://img.shields.io/github/v/release/crp2a/gammaShiny)
+[![r-universe](https://crp2a.r-universe.dev/badges/gammaShiny)](https://crp2a.r-universe.dev)
 
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
@@ -56,9 +55,7 @@ You can install **gammaShiny** from [our
 repository](https://crp2a.r-universe.dev) with:
 
 ``` r
-options(repos = c(crp2a = 'https://crp2a.r-universe.dev',
-                  CRAN = 'https://cloud.r-project.org'))
-install.packages("gammaShiny")
+install.packages("gammaShiny", repos = "https://crp2a.r-universe.dev")
 ```
 
 ## Usage

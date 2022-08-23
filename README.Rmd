@@ -18,9 +18,9 @@ knitr::opts_chunk$set(
 # gammaShiny <img width=120px src="man/figures/logo.png" align="right" />
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/crp2a/gammaShiny/workflows/R-CMD-check/badge.svg)](https://github.com/crp2a/gammaShiny/actions)
+[![R-CMD-check](https://github.com/crp2a/gammaShiny/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/crp2a/gammaShiny/actions/workflows/R-CMD-check.yaml)
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/crp2a/gammaShiny)
+[![r-universe](https://crp2a.r-universe.dev/badges/gammaShiny)](https://crp2a.r-universe.dev)
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
@@ -45,9 +45,7 @@ utils::citation("gammaShiny")
 You can install **gammaShiny** from [our repository](https://crp2a.r-universe.dev) with:
 
 ```{r drat-installation, eval=FALSE}
-options(repos = c(crp2a = 'https://crp2a.r-universe.dev',
-                  CRAN = 'https://cloud.r-project.org'))
-install.packages("gammaShiny")
+install.packages("gammaShiny", repos = "https://crp2a.r-universe.dev")
 ```
 
 ## Usage
