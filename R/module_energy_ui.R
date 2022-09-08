@@ -74,7 +74,7 @@ module_energy_ui <- function(id) {
                 )
               ),
               column(
-                width = 8,
+                width = 6,
                 style = "margin-top: 25px;",
                 downloadButton(outputId = ns("export_data"), "Export spectra"),
                 downloadButton(outputId = ns("export_plot"), "Export plot")
@@ -86,7 +86,12 @@ module_energy_ui <- function(id) {
               column(
                 width = 12,
                 style = "margin-top: 25px;",
-                plotly::plotlyOutput(outputId = ns("plot_spectrum"))
+                plotly::plotlyOutput(outputId = ns("plot_spectrum")),
+                checkboxInput(
+                  inputId = ns("log_scale"),
+                  label = "Log scale",
+                  value = TRUE
+                )
               )
             )
           )

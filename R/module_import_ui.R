@@ -40,6 +40,11 @@ module_import_ui <- function(id) {
               label = "Display in a grid",
               value = FALSE
             ),
+            checkboxInput(
+              inputId = ns("log_scale"),
+              label = "Log scale",
+              value = TRUE
+            ),
             radioButtons(
               inputId = ns("xaxis"),
               label = "X axis",

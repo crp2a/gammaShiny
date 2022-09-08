@@ -15,20 +15,27 @@ module_import_server <- function(input, output, session,
     req(user_data$spectra, input$select)
     user_data$spectra[input$select]
   })
+
   user_table <- reactive({
     req(user_spectra())
     summarise(user_spectra())
   })
+
   plot_spectra <- reactive({
     validate(
       need(user_data$spectra, "Please import one or more spectra."),
       need(input$select, "Please select one or more spectra.")
     )
-    plot(user_spectra(), xaxis = input$xaxis, yaxis = input$yaxis,
+
+    gg_log <- if (input$log_scale) ggplot2::scale_y_log10() else NULL
+
+    gamma::plot(user_spectra(), xaxis = input$xaxis, yaxis = input$yaxis,
          select = input$select, facet = input$facet) +
       ggplot2::theme_bw() +
+      gg_log +
       user_settings$fig_scale
   })
+
   observeEvent(input$files, {
     req(input$files)
 
@@ -60,10 +67,12 @@ module_import_server <- function(input, output, session,
       selected = new$spc_name
     )
   })
+
   # Render
   output$plot <- plotly::renderPlotly({
     plotly::ggplotly(plot_spectra())
   })
+
   output$summary <- renderText({
     tbl <- user_table()
     id <- tbl$name
@@ -93,6 +102,7 @@ module_import_server <- function(input, output, session,
       header = c(" " = 5, "Energy Range" = 2)
     )
   })
+
   output$export_plot <- downloadHandler(
     filename = "spectra.pdf",
     content = function(file) {
@@ -103,6 +113,7 @@ module_import_server <- function(input, output, session,
     },
     contentType = "application/pdf"
   )
+
   output$export_table <- downloadHandler(
     filename = "summary.csv",
     content = function(file) {

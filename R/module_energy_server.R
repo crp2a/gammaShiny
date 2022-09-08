@@ -12,10 +12,12 @@
 module_energy_server <- function(input, output, session,
                                  user_data, user_settings) {
   user_lines <- reactiveVal(data.frame())
+
   user_spectrum <- reactive({
     req(user_data$spectra, input$select)
     user_data$spectra[[input$select]]
   })
+
   user_peaks <- reactive({
     validate(
       need(!is.null(input$smooth_m) && input$smooth_m != "",
@@ -81,12 +83,18 @@ module_energy_server <- function(input, output, session,
       name = input$select
     )
   })
+
   plot_spectrum <- reactive({
     req(user_peaks())
+
+    gg_log <- if (input$log_scale) ggplot2::scale_y_log10() else NULL
+
     plot(user_peaks()$spectrum, user_peaks()$peaks) +
       ggplot2::labs(title = user_peaks()$name) +
-      ggplot2::theme_bw()
+      ggplot2::theme_bw() +
+      gg_log
   })
+
   plot_baseline <- reactive({
     req(user_peaks())
     bsl <- user_peaks()$baseline
@@ -96,12 +104,14 @@ module_energy_server <- function(input, output, session,
       ggplot2::theme_bw() +
       ggplot2::theme(legend.position = "none")
   })
+
   plot_peaks <- reactive({
     req(user_peaks())
     plot(user_peaks()$lines, user_peaks()$peaks) +
       ggplot2::labs(title = user_peaks()$name) +
       ggplot2::theme_bw()
   })
+
   observeEvent(user_data$spectra, {
     req(user_data$spectra)
     # Update UI
@@ -112,6 +122,7 @@ module_energy_server <- function(input, output, session,
       selected = ifelse(input$select == "", user_data$names[[1L]], input$select)
     )
   })
+
   observeEvent(input$select, {
     # Update UI
     req(input$select)
@@ -120,6 +131,7 @@ module_energy_server <- function(input, output, session,
     updateSliderInput(session, inputId = "slice_range",
                       max = max_channel, value = c(60, max_channel))
   })
+
   observeEvent({
     user_lines()
     user_data$spectra
@@ -155,11 +167,13 @@ module_energy_server <- function(input, output, session,
       user_lines(tmp)
     }
   })
+
   observeEvent(input$input_lines_cell_edit, {
     tmp <- user_lines()
     tmp$energy <- as.numeric(input$input_lines_cell_edit$value)
     user_lines(tmp)
   })
+
   observeEvent(input$action, {
     spc <- user_peaks()$spectrum
     pks <- user_lines()
@@ -185,6 +199,7 @@ module_energy_server <- function(input, output, session,
       )
     }
   })
+
   observeEvent(input$reset, {
     user_data$spectra[[input$select]] <- user_data$raw[[input$select]]
     shinyWidgets::sendSweetAlert(
@@ -194,16 +209,20 @@ module_energy_server <- function(input, output, session,
       type = "info"
     )
   })
+
   # Render
   output$plot_spectrum <- plotly::renderPlotly({
     plotly::ggplotly(plot_spectrum())
   })
+
   output$plot_baseline <- plotly::renderPlotly({
     plotly::ggplotly(plot_baseline())
   })
+
   output$plot_peaks <- plotly::renderPlotly({
     plotly::ggplotly(plot_peaks())
   })
+
   output$calibration <- renderUI({
     spc <- user_spectrum()
     if (has_energy(spc)) {
@@ -228,6 +247,7 @@ module_energy_server <- function(input, output, session,
       )
     }
   })
+
   output$input_lines <- DT::renderDT({
     DT::datatable(
       data = user_lines(),
@@ -237,6 +257,7 @@ module_energy_server <- function(input, output, session,
                       disable = list(columns = 1))
     )
   })
+
   output$export_data <- downloadHandler(
     filename = "spectra.rds",
     content = function(file) {
@@ -244,6 +265,7 @@ module_energy_server <- function(input, output, session,
     },
     contentType = "NA"
   )
+
   output$export_lines <- downloadHandler(
     filename = function() paste0(user_peaks()$name, ".csv"),
     content = function(file) {
@@ -253,6 +275,7 @@ module_energy_server <- function(input, output, session,
     },
     contentType = "text/csv"
   )
+
   output$export_plot <- downloadHandler(
     filename = function() paste0(user_peaks()$name, ".pdf"),
     content = function(file) {
@@ -263,6 +286,7 @@ module_energy_server <- function(input, output, session,
     },
     contentType = "application/pdf"
   )
+
   output$export_baseline <- downloadHandler(
     filename = function() paste0(user_peaks()$name, ".pdf"),
     content = function(file) {
