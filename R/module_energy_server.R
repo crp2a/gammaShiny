@@ -72,7 +72,6 @@ module_energy_server <- function(input, output, session,
                       span = input$peak_span * get_channels(spc) / 100)
 
     lines <- as.data.frame(pks)
-    lines$energy <- NA_real_
     user_lines(lines)
 
     list(
@@ -142,7 +141,7 @@ module_energy_server <- function(input, output, session,
       utils::read.table(
         header = FALSE, sep = " ", dec = ".",
         strip.white = TRUE, blank.lines.skip = TRUE,
-        col.names = c("channel", "energy"),
+        col.names = c("channel", "energy_expected"),
         colClasses = c("integer", "numeric"),
         text = input$presets_lines
       ),
@@ -151,7 +150,7 @@ module_energy_server <- function(input, output, session,
     if (!inherits(presets, "try-error") && nrow(presets) > 0) {
       tmp <- user_lines()
       if (nrow(tmp) > 0 && nrow(presets) == 0) {
-        tmp$energy <- NA_real_
+        tmp$energy_expected <- NA_real_
       } else if (nrow(tmp) > 0 &&nrow(presets) > 0) {
         req(input$presets_tolerance)
         tol <- input$presets_tolerance
@@ -160,7 +159,7 @@ module_energy_server <- function(input, output, session,
           k <- which.min(abs(tmp$channel - b))
           a <- tmp$channel[k]
           if (a >= b - tol && a <= b + tol) {
-            tmp$energy[k] <- presets$energy[i]
+            tmp$energy_expected[k] <- presets$energy_expected[i]
           }
         }
       }
@@ -170,7 +169,7 @@ module_energy_server <- function(input, output, session,
 
   observeEvent(input$input_lines_cell_edit, {
     tmp <- user_lines()
-    tmp$energy <- as.numeric(input$input_lines_cell_edit$value)
+    tmp$energy_expected <- as.numeric(input$input_lines_cell_edit$value)
     user_lines(tmp)
   })
 
@@ -178,9 +177,11 @@ module_energy_server <- function(input, output, session,
     spc <- user_peaks()$spectrum
     pks <- user_lines()
     pks <- stats::na.omit(pks)
+    pks$energy <- pks$energy_expected
 
     # Calibrate energy scale
     spc_calib <- try(energy_calibrate(spc, pks))
+
     # Update spectrum
     if (inherits(spc_calib, "try-error")) {
       shinyWidgets::sendSweetAlert(
@@ -251,10 +252,8 @@ module_energy_server <- function(input, output, session,
   output$input_lines <- DT::renderDT({
     DT::datatable(
       data = user_lines(),
-      options = list("searching" = FALSE,
-                     "paging" = FALSE),
-      editable = list(target = "column",
-                      disable = list(columns = 1))
+      options = list("searching" = FALSE, "paging" = FALSE),
+      editable = list(target = "column", disable = list(columns = c(1, 2)))
     )
   })
 

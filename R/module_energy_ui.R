@@ -137,7 +137,7 @@ module_energy_ui <- function(id) {
               selectInput(
                 inputId = ns("stabilize_method"),
                 label = "Method",
-                selected = 1,
+                selected = "sqrt",
                 choices = list(none = "none", `square root` = "sqrt")
               )
             ),
