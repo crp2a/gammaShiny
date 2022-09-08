@@ -20,14 +20,17 @@ module_dose_server <- function(input, output, session,
     req(input$files)
     input$files
   })
+
   user_spectra <- reactive({
     req(user_data$spectra, input$select)
     user_data$spectra[input$select]
   })
+
   user_curve <- reactive({
     req(input$select_curve)
     get(input$select_curve, envir = env_calibration)
   })
+
   user_dose <- reactive({
     req(input$sigma, input$epsilon, user_curve(), user_spectra())
     withCallingHandlers(
@@ -42,6 +45,15 @@ module_dose_server <- function(input, output, session,
       }
     )
   })
+
+  plot_curve <- reactive({
+    req(user_curve())
+    gamma::plot(user_curve(), error_ellipse = TRUE, error_bar = FALSE,
+                energy = FALSE, level = 0.95, n = 50) +
+      ggplot2::labs(title = "Calibration curve") +
+      ggplot2::theme_bw()
+  })
+
   observe({
     cv_name <- tools::file_path_sans_ext(user_files()$name)
     cv_data <- readRDS(user_files()$datapath)
@@ -75,6 +87,7 @@ module_dose_server <- function(input, output, session,
     )
   })
   # Render
+  output$curve <- renderPlot({plot_curve()})
   output$info <- renderUI({
     info <- user_curve()[["details"]]
     tags$dl(

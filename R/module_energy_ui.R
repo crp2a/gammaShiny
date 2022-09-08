@@ -15,7 +15,7 @@ module_energy_ui <- function(id) {
       tabsetPanel(
         tabPanel(
           "Energy Scale Adjustment",
-          icon = icon("arrows-alt-h"),
+          icon = icon("arrows-left-right"),
           fluidRow(
             style = "margin-top: 25px;",
             column(
@@ -35,7 +35,7 @@ module_energy_ui <- function(id) {
                 actionButton(inputId = ns("reset"), "Restore"),
                 tags$hr(),
                 shinyWidgets::dropdownButton(
-                  icon = icon("sliders-h"),
+                  icon = icon("sliders"),
                   tags$h3("Presets"),
                   helpText(
                     "You can define channel-energy pairs (in keV) to pre-fill",

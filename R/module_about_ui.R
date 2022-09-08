@@ -9,7 +9,7 @@ module_about_ui <- function(id) {
 
   tabPanel(
     "About",
-    icon = icon("info-circle"),
+    icon = icon("circle-info"),
     fluidRow(
       column(
         width = 8,

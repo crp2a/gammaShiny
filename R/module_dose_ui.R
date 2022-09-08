@@ -10,7 +10,7 @@ module_dose_ui <- function(id) {
 
   tabPanel(
     "3. Dose Rate Estimation",
-    icon = icon("hourglass-half"),
+    icon = icon("hourglass"),
     fluidPage(
       fluidRow(
         column(
@@ -60,13 +60,6 @@ module_dose_ui <- function(id) {
       fluidRow(
         column(
           width = 4,
-          uiOutput(outputId = ns("info")),
-          fileInput(
-            inputId = ns("files"),
-            label = "Import a calibration curve",
-            multiple = FALSE,
-            accept = c('.rds', '.RDS')
-          ),
           conditionalPanel(
             ns = ns,
             condition = "input.curve != ''",
@@ -82,6 +75,14 @@ module_dose_ui <- function(id) {
                 min = 0, max = 100, value = 0, step = 1
               )
             )
+          ),
+          plotOutput(outputId = ns("curve")),
+          uiOutput(outputId = ns("info")),
+          fileInput(
+            inputId = ns("files"),
+            label = "Import a calibration curve",
+            multiple = FALSE,
+            accept = c('.rds', '.RDS')
           )
         ),
         column(
