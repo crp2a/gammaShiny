@@ -49,11 +49,12 @@
 #' @importFrom plotly ggplotly renderPlotly plotlyOutput
 #' @importFrom shiny numericInput NS actionButton checkboxInput column
 #' conditionalPanel downloadButton downloadHandler fileInput fluidPage fluidRow
-#' h4 h5 helpText htmlOutput icon img need observe observeEvent radioButtons
-#' reactive reactiveVal reactiveValues renderPrint renderText renderUI req
-#' selectInput showNotification sliderInput tabPanel tabsetPanel tagList tags
-#' textAreaInput uiOutput updateSelectInput updateSliderInput validate
-#' verbatimTextOutput navbarPage wellPanel enableBookmarking callModule
-#' tableOutput stopApp bookmarkButton onBookmark onRestore textOutput
+#' h4 h5 helpText htmlOutput icon img need observe observeEvent plotOutput
+#' radioButtons reactive reactiveVal reactiveValues renderPlot renderPrint
+#' renderText renderUI req selectInput showNotification sliderInput tabPanel
+#' tabsetPanel tagList tags textAreaInput uiOutput updateSelectInput
+#' updateSliderInput validate verbatimTextOutput navbarPage wellPanel
+#' enableBookmarking callModule tableOutput stopApp bookmarkButton onBookmark
+#' onRestore textOutput
 #' @importFrom shinyWidgets dropdownButton pickerInput
 NULL

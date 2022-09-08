@@ -7,7 +7,7 @@
   "codeRepository": "https://github.com/crp2a/gammaShiny",
   "issueTracker": "https://github.com/crp2a/gammaShiny/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.1.0.9000",
+  "version": "0.1.0.9001",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -93,6 +93,12 @@
       "identifier": "gamma",
       "name": "gamma",
       "version": ">= 0.2.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
       "sameAs": "https://github.com/crp2a/gamma"
     },
     "3": {
@@ -206,7 +212,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "330.378KB",
+  "fileSize": "331.339KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
