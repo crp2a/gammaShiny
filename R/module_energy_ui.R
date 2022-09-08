@@ -27,6 +27,14 @@ module_energy_ui <- function(id) {
                     "of the channels below, then click on", dQuote("calibrate.")
                   ),
                   tags$p(
+                    "Commonly used channel-energy pairs:",
+                    tags$ul(
+                      tags$li("76: 238 keV"),
+                      tags$li("465: 1461 keV"),
+                      tags$li("830: 2615 keV")
+                    )
+                  ),
+                  tags$p(
                     "Double click to edit the cells,",
                     "then hit Ctrl+Enter to finish editing (or Esc to cancel)."
                   )
@@ -34,30 +42,6 @@ module_energy_ui <- function(id) {
                 actionButton(inputId = ns("action"), "Calibrate"),
                 actionButton(inputId = ns("reset"), "Restore"),
                 tags$hr(),
-                shinyWidgets::dropdownButton(
-                  icon = icon("sliders"),
-                  tags$h3("Presets"),
-                  helpText(
-                    "You can define channel-energy pairs (in keV) to pre-fill",
-                    "the values to be used for the energy scale calibration.",
-                    "Values must be separated by a blank space,",
-                    "each pair must be on its own line.",
-                    "A tolerance (in channel) must be set to provide the limits",
-                    "between which we can expect to find the specified channels."
-                  ),
-                  textAreaInput(
-                    inputId = ns("presets_lines"),
-                    label = "Channel-energy pairs",
-                    value = "", width = NULL,
-                    rows = 8, placeholder = "76 238.63"
-                    # 76 238.63\n465 1460.82\n830 2614.51
-                  ),
-                  numericInput(
-                    inputId = ns("presets_tolerance"),
-                    label = "Tolerance",
-                    value = 5, min = 1, max = 50, step = 1
-                  )
-                ),
                 dataTableOutput(outputId = ns("input_lines"))
               )
             ),

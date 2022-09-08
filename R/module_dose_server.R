@@ -76,6 +76,7 @@ module_dose_server <- function(input, output, session,
       )
     }
   })
+
   observeEvent(user_data$spectra, {
     req(user_data$spectra)
     # Update UI
@@ -86,8 +87,10 @@ module_dose_server <- function(input, output, session,
       selected = user_data$names
     )
   })
+
   # Render
   output$curve <- renderPlot({plot_curve()})
+
   output$info <- renderUI({
     info <- user_curve()[["details"]]
     tags$dl(
@@ -101,7 +104,19 @@ module_dose_server <- function(input, output, session,
       style = "margin-top: 0.5em"
     )
   })
+
+  output$energy <- renderUI({
+    if (!all(has_calibration(user_spectra()))) {
+      tags$h4(
+        tags$span(icon("triangle-exclamation"), style = "color: orange;"),
+        "The energy scale of one or more spectra must be adjusted. Check your data!"
+      )
+    }
+  })
+
   output$results <- renderText({
+    energy_calib <- has_calibration(user_spectra())
+
     tbl <- knitr::kable(
       user_dose(),
       digits = user_settings$digits,
@@ -117,7 +132,13 @@ module_dose_server <- function(input, output, session,
       kable_input = tbl,
       header = c(" " = 1, "Ni" = 2, "NiEi" = 2)
     )
+    tbl <- kableExtra::row_spec(
+      kable_input = tbl,
+      row = which(!energy_calib), bold = FALSE,
+      color = "black", background = "orange"
+    )
   })
+
   output$export_table <- downloadHandler(
     filename = "dose_rate.csv",
     content = function(file) {

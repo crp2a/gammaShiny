@@ -56,5 +56,5 @@
 #' updateSliderInput validate verbatimTextOutput navbarPage wellPanel
 #' enableBookmarking callModule tableOutput stopApp bookmarkButton onBookmark
 #' onRestore textOutput
-#' @importFrom shinyWidgets dropdownButton pickerInput
+#' @importFrom shinyWidgets pickerInput
 NULL

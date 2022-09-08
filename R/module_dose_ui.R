@@ -72,7 +72,7 @@ module_dose_ui <- function(id) {
               numericInput(
                 inputId = ns("epsilon"),
                 label = "Energy calibration error (%)",
-                min = 0, max = 100, value = 0, step = 1
+                min = 0, max = 100, value = 3, step = 1
               )
             )
           ),
@@ -84,6 +84,10 @@ module_dose_ui <- function(id) {
             multiple = FALSE,
             accept = c('.rds', '.RDS')
           )
+        ),
+        column(
+          width = 8,
+          htmlOutput(outputId = ns("energy"))
         ),
         column(
           width = 8,

@@ -131,42 +131,6 @@ module_energy_server <- function(input, output, session,
                       max = max_channel, value = c(60, max_channel))
   })
 
-  observeEvent({
-    user_lines()
-    user_data$spectra
-    input$select
-    input$presets_lines
-  }, {
-    presets <- try(
-      utils::read.table(
-        header = FALSE, sep = " ", dec = ".",
-        strip.white = TRUE, blank.lines.skip = TRUE,
-        col.names = c("channel", "energy_expected"),
-        colClasses = c("integer", "numeric"),
-        text = input$presets_lines
-      ),
-      silent = TRUE
-    )
-    if (!inherits(presets, "try-error") && nrow(presets) > 0) {
-      tmp <- user_lines()
-      if (nrow(tmp) > 0 && nrow(presets) == 0) {
-        tmp$energy_expected <- NA_real_
-      } else if (nrow(tmp) > 0 &&nrow(presets) > 0) {
-        req(input$presets_tolerance)
-        tol <- input$presets_tolerance
-        for (i in seq_len(nrow(presets))) {
-          b <- presets$channel[i]
-          k <- which.min(abs(tmp$channel - b))
-          a <- tmp$channel[k]
-          if (a >= b - tol && a <= b + tol) {
-            tmp$energy_expected[k] <- presets$energy_expected[i]
-          }
-        }
-      }
-      user_lines(tmp)
-    }
-  })
-
   observeEvent(input$input_lines_cell_edit, {
     tmp <- user_lines()
     tmp$energy_expected <- as.numeric(input$input_lines_cell_edit$value)
@@ -227,22 +191,22 @@ module_energy_server <- function(input, output, session,
   output$calibration <- renderUI({
     spc <- user_spectrum()
     if (has_energy(spc)) {
-      if (!is.null(spc[["calibration"]])) {
-        tags$div(
-          tags$span(icon("check-circle"), style = "color: green;"),
+      if (has_calibration(spc)) {
+        tags$h4(
+          tags$span(icon("circle-check"), style = "color: green;"),
           sprintf("The energy scale of the spectrum %s has been adjusted.",
                   input$select)
         )
       } else {
-        tags$div(
-          tags$span(icon("exclamation-triangle"), style = "color: orange;"),
-          sprintf("The spectrum %s has an energy scale, but has not been adjusted.",
+        tags$h4(
+          tags$span(icon("triangle-exclamation"), style = "color: orange;"),
+          sprintf("The energy scale of the spectrum %s is most likely wrong and needs to be adjusted.",
                   input$select)
         )
       }
     } else {
-      tags$div(
-        tags$span(icon("times-circle"), style = "color: red;"),
+      tags$h4(
+        tags$span(icon("circle-xmark"), style = "color: red;"),
         sprintf("The spectrum %s does not have an energy scale.",
                 input$select)
       )
