@@ -13,7 +13,7 @@ module_settings_server <- function(input, output, session, user_settings) {
     if (inherits(colour, "try-error")) {
       # Emulate ggplot2 default colours
       colour <- function(n) {
-        hues = seq(15, 375, length = n + 1)
+        hues <- seq(15, 375, length = n + 1)
         grDevices::hcl(h = hues, l = 65, c = 100)[1:n]
       }
     } else {
@@ -40,12 +40,17 @@ module_settings_server <- function(input, output, session, user_settings) {
     user_settings$fig_colour <- colour
     user_settings$fig_scale <- scale
   })
+
   # Render
   output$last_saved <- renderText({
     req(user_settings$saved)
     paste("Last saved at", user_settings$saved)
   })
-  output$session <- renderPrint({ utils::sessionInfo() })
+
+  output$session <- renderPrint({
+    utils::sessionInfo()
+    })
+
   # Bookmark
   onBookmark(function(state) {
     user_settings$saved <- Sys.time()
@@ -53,6 +58,7 @@ module_settings_server <- function(input, output, session, user_settings) {
     # we can add arbitrary values to it.
     state$values$time <- user_settings$saved
   })
+
   onRestore(function(state) {
     user_settings$saved <- state$values$time
   })

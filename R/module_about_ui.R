@@ -4,9 +4,6 @@
 #' @family modules
 #' @export
 module_about_ui <- function(id) {
-  # Create a namespace function using the provided id
-  ns <- NS(id)
-
   tabPanel(
     "About",
     icon = icon("circle-info"),

@@ -24,16 +24,18 @@ module_energy_ui <- function(id) {
                 helpText(
                   tags$p(
                     "The following channels were detected as peaks candidates",
-                    "(you can adjust the detection parameters in the corresponding tab)."
+                    "(you can adjust the detection parameters",
+                    "in the corresponding tab)."
                   ),
                   tags$p(
                     "To adjust the energy scale of your spectrum,",
-                    "select the three lines corresponding to 212Pb, 40K and 208Tl",
-                    "in the table below, then click on", dQuote("calibrate.")
+                    "select the three lines corresponding to 212Pb, 40K",
+                    "and 208Tl in the table below, then click on",
+                    dQuote("calibrate.")
                   ),
                   tags$p(
-                    "These three channels will be assigned the following energies:",
-                    "238 keV, 1461 keV and 2615 keV."
+                    "These three channels will be assigned the following",
+                    "energies: 238 keV, 1461 keV and 2615 keV."
                   )
                 ),
                 actionButton(inputId = ns("action"), "Calibrate"),

@@ -82,7 +82,7 @@ module_dose_ui <- function(id) {
             inputId = ns("files"),
             label = "Import a calibration curve",
             multiple = FALSE,
-            accept = c('.rds', '.RDS')
+            accept = c(".rds", ".RDS")
           )
         ),
         column(

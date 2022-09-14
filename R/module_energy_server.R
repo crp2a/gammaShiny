@@ -196,21 +196,20 @@ module_energy_server <- function(input, output, session,
       if (has_calibration(spc)) {
         tags$h4(
           tags$span(icon("circle-check"), style = "color: green;"),
-          sprintf("The energy scale of the spectrum %s has been adjusted.",
-                  input$select)
+          "The energy scale of the spectrum", sQuote(input$select),
+          "has been adjusted."
         )
       } else {
         tags$h4(
           tags$span(icon("triangle-exclamation"), style = "color: orange;"),
-          sprintf("The energy scale of the spectrum %s is most likely wrong and needs to be adjusted.",
-                  input$select)
+          "The energy scale of the spectrum", sQuote(input$select),
+          "is most likely wrong and needs to be adjusted."
         )
       }
     } else {
       tags$h4(
         tags$span(icon("circle-xmark"), style = "color: red;"),
-        sprintf("The spectrum %s does not have an energy scale.",
-                input$select)
+        "The spectrum", sQuote(input$select), "does not have an energy scale."
       )
     }
   })

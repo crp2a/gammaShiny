@@ -37,12 +37,12 @@ run_app <- function(app = c("doserate", "calibration"),
                     browser = TRUE, display = "auto") {
   app <- match.arg(app, several.ok = FALSE)
   if (app == "calibration") stop("Work in progress!", call. = FALSE)
-  appDir <- system.file(app, package = "gammaShiny")
-  if (appDir == "")
+  app_dir <- system.file(app, package = "gammaShiny")
+  if (app_dir == "")
     stop(sprintf("Could not find %s app. ", sQuote(app)),
          "Try re-installing 'gammaShiny'.", call. = FALSE)
   shiny::shinyAppDir(
-    appDir = appDir,
+    appDir = app_dir,
     options = list(launch.browser = browser, display.mode = display)
   )
 }

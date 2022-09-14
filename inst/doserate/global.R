@@ -12,5 +12,5 @@ rm(list = ls())
 library(gammaShiny)
 
 ## Set Shiny settings ==========================================================
-options(shiny.maxRequestSize = 30*1024^2)
+options(shiny.maxRequestSize = 30 * 1024^2)
 enableBookmarking(store = "server")

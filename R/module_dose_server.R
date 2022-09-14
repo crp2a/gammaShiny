@@ -89,7 +89,9 @@ module_dose_server <- function(input, output, session,
   })
 
   # Render
-  output$curve <- renderPlot({plot_curve()})
+  output$curve <- renderPlot({
+    plot_curve()
+  })
 
   output$info <- renderUI({
     info <- user_curve()[["details"]]
@@ -109,7 +111,8 @@ module_dose_server <- function(input, output, session,
     if (!all(has_calibration(user_spectra()))) {
       tags$h4(
         tags$span(icon("triangle-exclamation"), style = "color: orange;"),
-        "The energy scale of one or more spectra must be adjusted. Check your data!"
+        "The energy scale of one or more spectra must be adjusted.",
+        "Check your data!"
       )
     }
   })

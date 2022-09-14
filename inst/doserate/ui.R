@@ -15,9 +15,9 @@ shiny_ui <- function(request) {
       footer = tags$footer(
         style = "width: 100%;text-align: center;",
         icon("github"),
-        a(href = "https://github.com/crp2a/gammaShiny/issues",
-          rel = "external", title = "Issue",
-          "Report a bug or request.")
+        tags$a(href = "https://github.com/crp2a/gammaShiny/issues",
+               rel = "external", title = "Issue", target = "_blank",
+               "Report a bug or request.")
       )
     )
   )
