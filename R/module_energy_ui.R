@@ -23,20 +23,17 @@ module_energy_ui <- function(id) {
               wellPanel(
                 helpText(
                   tags$p(
-                    "Set the energy values (keV) corresponding to at least 3",
-                    "of the channels below, then click on", dQuote("calibrate.")
+                    "The following channels were detected as peaks candidates",
+                    "(you can adjust the detection parameters in the corresponding tab)."
                   ),
                   tags$p(
-                    "Commonly used channel-energy pairs:",
-                    tags$ul(
-                      tags$li("76: 238 keV"),
-                      tags$li("465: 1461 keV"),
-                      tags$li("830: 2615 keV")
-                    )
+                    "To adjust the energy scale of your spectrum,",
+                    "select the three lines corresponding to 212Pb, 40K and 208Tl",
+                    "in the table below, then click on", dQuote("calibrate.")
                   ),
                   tags$p(
-                    "Double click to edit the cells,",
-                    "then hit Ctrl+Enter to finish editing (or Esc to cancel)."
+                    "These three channels will be assigned the following energies:",
+                    "238 keV, 1461 keV and 2615 keV."
                   )
                 ),
                 actionButton(inputId = ns("action"), "Calibrate"),

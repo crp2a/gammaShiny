@@ -72,6 +72,7 @@ module_energy_server <- function(input, output, session,
                       span = input$peak_span * get_channels(spc) / 100)
 
     lines <- as.data.frame(pks)
+    lines <- data.frame(channel = lines$channel, energy = lines$energy_observed)
     user_lines(lines)
 
     list(
@@ -112,8 +113,8 @@ module_energy_server <- function(input, output, session,
   })
 
   observeEvent(user_data$spectra, {
-    req(user_data$spectra)
     # Update UI
+    req(user_data$spectra)
     updateSelectInput(
       session,
       inputId = "select",
@@ -131,17 +132,18 @@ module_energy_server <- function(input, output, session,
                       max = max_channel, value = c(60, max_channel))
   })
 
-  observeEvent(input$input_lines_cell_edit, {
-    tmp <- user_lines()
-    tmp$energy_expected <- as.numeric(input$input_lines_cell_edit$value)
-    user_lines(tmp)
+  observeEvent(input$input_lines_rows_selected, {
+    lines <- input$input_lines_rows_selected
+    if (length(lines) == 3) {
+      tmp <- user_lines()[lines, ]
+      tmp$energy <- c(238, 1461, 2615)
+      user_lines(tmp)
+    }
   })
 
   observeEvent(input$action, {
     spc <- user_peaks()$spectrum
     pks <- user_lines()
-    pks <- stats::na.omit(pks)
-    pks$energy <- pks$energy_expected
 
     # Calibrate energy scale
     spc_calib <- try(energy_calibrate(spc, pks))
@@ -216,8 +218,7 @@ module_energy_server <- function(input, output, session,
   output$input_lines <- DT::renderDT({
     DT::datatable(
       data = user_lines(),
-      options = list("searching" = FALSE, "paging" = FALSE),
-      editable = list(target = "column", disable = list(columns = c(1, 2)))
+      options = list("searching" = FALSE, "paging" = FALSE)
     )
   })
 
