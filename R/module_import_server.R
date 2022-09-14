@@ -30,7 +30,7 @@ module_import_server <- function(input, output, session,
     gg_log <- if (input$log_scale) ggplot2::scale_y_log10() else NULL
 
     gamma::plot(user_spectra(), xaxis = input$xaxis, yaxis = input$yaxis,
-         select = input$select, facet = input$facet) +
+                select = input$select) +
       ggplot2::theme_bw() +
       gg_log +
       user_settings$fig_scale

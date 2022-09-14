@@ -36,11 +36,6 @@ module_import_ui <- function(id) {
               )
             ),
             checkboxInput(
-              inputId = ns("facet"),
-              label = "Display in a grid",
-              value = FALSE
-            ),
-            checkboxInput(
               inputId = ns("log_scale"),
               label = "Log scale",
               value = TRUE
