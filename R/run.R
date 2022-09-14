@@ -2,19 +2,19 @@
 
 #' Run a Shiny App
 #'
-#' A wrapper for \code{\link[shiny:shinyApp]{shinyAppDir}}.
-#' @param app A \code{\link{character}} string specifying the Shiny application
-#'  to run. It must be one of "\code{doserate}" or "\code{calibration}"
+#' A wrapper for [shiny::shinyAppDir()].
+#' @param app A [`character`] string specifying the Shiny application
+#'  to run. It must be one of "`doserate`" or "`calibration`"
 #'  (see details). Any unambiguous substring can be given.
-#' @param browser A \code{\link{logical}} scalar: should the app be run in
+#' @param browser A [`logical`] scalar: should the app be run in
 #'  the browser?
-#' @param display A \code{\link{character}} string specifying the mode in which
-#'  to display the application (see \code{\link[shiny]{runApp}}).
+#' @param display A [`character`] string specifying the mode in which
+#'  to display the application (see [shiny::runApp()]).
 #' @details
 #'  \tabular{ll}{
-#'   \strong{Application name} \tab  \strong{Keyword} \cr
-#'   Dose rate estimation \tab \code{doserate} \cr
-#'   Calibration curve builder \tab \code{calibration} \cr
+#'   **Application name** \tab  **Keyword** \cr
+#'   Dose rate estimation \tab `doserate` \cr
+#'   Calibration curve builder \tab `calibration` \cr
 #'  }
 #' @examples
 #' \dontrun{

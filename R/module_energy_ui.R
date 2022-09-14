@@ -1,8 +1,8 @@
 #' Energy Calibration UI
 #'
-#' @param id A \code{\link{character}} vector to be used for the namespace.
-#' @seealso \link{module_import_server}
-#' @family module
+#' @param id A [`character`] vector to be used for the namespace.
+#' @seealso [module_energy_server()]
+#' @family modules
 #' @export
 module_energy_ui <- function(id) {
   # Create a namespace function using the provided id

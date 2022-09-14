@@ -1,8 +1,8 @@
 #' Settings UI
 #'
-#' @param id A \code{\link{character}} vector to be used for the namespace.
-#' @seealso \link{module_settings_server}
-#' @family module
+#' @param id A [`character`] vector to be used for the namespace.
+#' @seealso [module_settings_server()]
+#' @family modules
 #' @export
 module_settings_ui <- function(id) {
   # Create a namespace function using the provided id

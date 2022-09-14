@@ -7,13 +7,13 @@
 module_about_ui(id)
 }
 \arguments{
-\item{id}{A \code{\link{character}} vector to be used for the namespace.}
+\item{id}{A [`character`] vector to be used for the namespace.}
 }
 \description{
 About UI
 }
 \seealso{
-Other module: 
+Other modules: 
 \code{\link{module_dose_server}()},
 \code{\link{module_dose_ui}()},
 \code{\link{module_energy_server}()},
@@ -23,4 +23,4 @@ Other module:
 \code{\link{module_settings_server}()},
 \code{\link{module_settings_ui}()}
 }
-\concept{module}
+\concept{modules}

@@ -7,7 +7,7 @@
   "codeRepository": "https://github.com/crp2a/gammaShiny",
   "issueTracker": "https://github.com/crp2a/gammaShiny/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.1.0.9001",
+  "version": "0.2.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -61,20 +61,6 @@
       "email": "services-archeosciences@u-bordeaux-montaigne.fr"
     }
   ],
-  "softwareSuggestions": [
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "testthat",
-      "name": "testthat",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=testthat"
-    }
-  ],
   "softwareRequirements": {
     "1": {
       "@type": "SoftwareApplication",
@@ -92,14 +78,14 @@
       "@type": "SoftwareApplication",
       "identifier": "gamma",
       "name": "gamma",
-      "version": "> 1.0.2",
+      "version": ">= 1.0.3",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "sameAs": "https://github.com/crp2a/gamma"
+      "sameAs": "https://CRAN.R-project.org/package=gamma"
     },
     "3": {
       "@type": "SoftwareApplication",
@@ -212,7 +198,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "NAKB",
+  "fileSize": "328.842KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",

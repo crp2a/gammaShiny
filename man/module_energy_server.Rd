@@ -13,18 +13,18 @@ module_energy_server(input, output, session, user_data, user_settings)
 
 \item{session}{provided by \pkg{Shiny}.}
 
-\item{user_data}{a \code{\link[shiny]{reactiveValues}} list with the
-following elements: "\code{spectra}", "\code{names}" and "\code{raw}".}
+\item{user_data}{a [shiny::reactiveValues()] list with the
+following elements: "`code`", "`names`" and "`raw`".}
 
-\item{user_settings}{a \code{\link[shiny]{reactiveValues}} list.}
+\item{user_settings}{a [shiny::reactiveValues()] list.}
 }
 \description{
 Energy Calibration Server
 }
 \seealso{
-\link{module_energy_ui}
+[module_energy_ui()]
 
-Other module: 
+Other modules: 
 \code{\link{module_about_ui}()},
 \code{\link{module_dose_server}()},
 \code{\link{module_dose_ui}()},
@@ -34,4 +34,4 @@ Other module:
 \code{\link{module_settings_server}()},
 \code{\link{module_settings_ui}()}
 }
-\concept{module}
+\concept{modules}

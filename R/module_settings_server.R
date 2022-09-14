@@ -3,9 +3,9 @@
 #' @param input provided by \pkg{Shiny}.
 #' @param output provided by \pkg{Shiny}.
 #' @param session provided by \pkg{Shiny}.
-#' @param user_settings a \code{\link[shiny]{reactiveValues}} list.
-#' @seealso \link{module_settings_ui}
-#' @family module
+#' @param user_settings a [shiny::reactiveValues()] list.
+#' @seealso [module_settings_ui()]
+#' @family modules
 #' @export
 module_settings_server <- function(input, output, session, user_settings) {
   observe({

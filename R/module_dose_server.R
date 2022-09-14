@@ -3,11 +3,11 @@
 #' @param input provided by \pkg{Shiny}.
 #' @param output provided by \pkg{Shiny}.
 #' @param session provided by \pkg{Shiny}.
-#' @param user_data a \code{\link[shiny]{reactiveValues}} list with the
-#'  following elements: "\code{spectra}", "\code{names}" and "\code{raw}".
-#' @param user_settings a \code{\link[shiny]{reactiveValues}} list.
-#' @seealso \link{module_dose_ui}
-#' @family module
+#' @param user_data a [shiny::reactiveValues()] list with the
+#'  following elements: "`code`", "`names`" and "`raw`".
+#' @param user_settings a [shiny::reactiveValues()] list.
+#' @seealso [module_dose_ui()]
+#' @family modules
 #' @export
 module_dose_server <- function(input, output, session,
                                user_data, user_settings) {

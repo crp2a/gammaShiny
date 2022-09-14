@@ -2,31 +2,31 @@
 #' \tabular{ll}{
 #'  \strong{Package:} \tab gammaShiny \cr
 #'  \strong{Type:} \tab Package \cr
-#'  \strong{Version:} \tab 0.1.0 \cr
+#'  \strong{Version:} \tab 0.2.0 \cr
 #'  \strong{License:} \tab GPL-3 \cr
-#'  \strong{DOI:} \tab \href{https://doi.org/10.5281/zenodo.4139005}{10.5281/zenodo.4139005}
+#'  \strong{DOI:} \tab \doi{10.5281/zenodo.4139005}
 #' }
 #' @author
-#' \strong{Full list of authors and contributors} (alphabetic order)
+#' **Full list of authors and contributors** (alphabetic order)
 #'
 #' \tabular{ll}{
-#'  Nicolas Frerebeau \tab \emph{Université Bordeaux Montaigne, France} \cr
-#'  Brice Lebrun \tab \emph{Université Bordeaux Montaigne, France}
+#'  Nicolas Frerebeau \tab *Université Bordeaux Montaigne, France* \cr
+#'  Brice Lebrun \tab *Université Bordeaux Montaigne, France*
 #' }
 #'
-#' \strong{Package maintainer}
+#' **Package maintainer**
 #'
-#' Brice Lebrun\cr
-#' \email{brice.lebrun@@u-bordeaux-montaigne.fr}
+#' Nicolas Frerebeau\cr
+#' \email{services-archeosciences@@u-bordeaux-montaigne.fr}
 #'
-#' IRAMAT-CRP2A (UMR 5060)\cr
+#' Archéosciences Bordeaux (UMR 6034)\cr
 #' Maison de l'Archéologie\cr
 #' Université Bordeaux Montaigne\cr
 #' F-33607 Pessac cedex\cr
 #' France
 #' @note
 #' This work received a state financial support managed by the Agence Nationale
-#' de la Recherche (France) throught the program \emph{Investissements d'avenir}
+#' de la Recherche (France) throught the program *Investissements d'avenir*
 #' (ref. \href{https://lascarbx.labex.u-bordeaux.fr}{ANR-10-LABX-52} and
 #' \href{https://amidex.univ-amu.fr/}{11-IDEX-0001}).
 #' @name gammaShiny-package

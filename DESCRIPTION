@@ -1,36 +1,25 @@
 Package: gammaShiny
 Title: 'Shiny' Applications for the R Package 'gamma'
-Version: 0.1.0.9001
-Authors@R: 
-    c(person(given = "Nicolas",
-             family = "Frerebeau",
-             role = "aut",
-             email = "nicolas.frerebeau@u-bordeaux-montaigne.fr",
-             comment = c(ORCID = "0000-0001-5759-4944")),
-      person(given = "Brice",
-             family = "Lebrun",
-             role = "aut",
-             email = "brice.lebrun@u-bordeaux-montaigne.fr",
-             comment = c(ORCID = "0000-0001-7503-8685")),
-      person(given = "Archéosciences Bordeaux",
-             role = "cre",
-             email = "services-archeosciences@u-bordeaux-montaigne.fr"),
-      person(given = "Université Bordeaux Montaigne",
-             role = c("cph", "fnd")),
-      person(given = "CNRS",
-             role = "fnd"),
-      person(given = "LabEx Sciences archéologiques de Bordeaux",
-             role = "fnd"),
-      person(given = "Idex Aix-Marseille",
-             role = "fnd"))
-Description: A collection of 'shiny' applications for the R
-    package 'gamma'.
+Version: 0.2.0
+Authors@R: c(
+    person("Nicolas", "Frerebeau", , "nicolas.frerebeau@u-bordeaux-montaigne.fr", role = "aut",
+           comment = c(ORCID = "0000-0001-5759-4944")),
+    person("Brice", "Lebrun", , "brice.lebrun@u-bordeaux-montaigne.fr", role = "aut",
+           comment = c(ORCID = "0000-0001-7503-8685")),
+    person("Archéosciences Bordeaux", , , "services-archeosciences@u-bordeaux-montaigne.fr", role = "cre"),
+    person("Université Bordeaux Montaigne", role = c("cph", "fnd")),
+    person("CNRS", role = "fnd"),
+    person("LabEx Sciences archéologiques de Bordeaux", role = "fnd"),
+    person("Idex Aix-Marseille", role = "fnd")
+  )
+Description: A collection of 'shiny' applications for the R package
+    'gamma'.
 License: GPL-3
 URL: https://github.com/crp2a/gammaShiny
 BugReports: https://github.com/crp2a/gammaShiny/issues
 Imports: 
     DT,
-    gamma (> 1.0.2),
+    gamma (>= 1.0.3),
     ggplot2,
     grDevices,
     kableExtra,
@@ -43,10 +32,6 @@ Imports:
     stats,
     tools,
     utils
-Suggests: 
-    testthat
-Remotes:
-    crp2a/gamma
 Encoding: UTF-8
 RoxygenNote: 7.2.1
 Collate: 

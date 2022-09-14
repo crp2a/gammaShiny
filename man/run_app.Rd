@@ -14,27 +14,27 @@ launch_app(
 )
 }
 \arguments{
-\item{app}{A \code{\link{character}} string specifying the Shiny application
-to run. It must be one of "\code{doserate}" or "\code{calibration}"
+\item{app}{A [`character`] string specifying the Shiny application
+to run. It must be one of "`doserate`" or "`calibration`"
 (see details). Any unambiguous substring can be given.}
 
-\item{browser}{A \code{\link{logical}} scalar: should the app be run in
+\item{browser}{A [`logical`] scalar: should the app be run in
 the browser?}
 
-\item{display}{A \code{\link{character}} string specifying the mode in which
-to display the application (see \code{\link[shiny]{runApp}}).}
+\item{display}{A [`character`] string specifying the mode in which
+to display the application (see [shiny::runApp()]).}
 }
 \value{
 A \pkg{shiny} application object.
 }
 \description{
-A wrapper for \code{\link[shiny:shinyApp]{shinyAppDir}}.
+A wrapper for [shiny::shinyAppDir()].
 }
 \details{
 \tabular{ll}{
-  \strong{Application name} \tab  \strong{Keyword} \cr
-  Dose rate estimation \tab \code{doserate} \cr
-  Calibration curve builder \tab \code{calibration} \cr
+  **Application name** \tab  **Keyword** \cr
+  Dose rate estimation \tab `doserate` \cr
+  Calibration curve builder \tab `calibration` \cr
  }
 }
 \note{
