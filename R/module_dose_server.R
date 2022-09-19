@@ -31,8 +31,30 @@ module_dose_server <- function(input, output, session,
     get(input$select_curve, envir = env_calibration)
   })
 
+  user_integrate <- reactive({
+    req(user_curve(), user_spectra())
+
+    ni <- signal_integrate(
+      user_spectra(),
+      background = user_curve()[["Ni"]][["background"]],
+      range = user_curve()[["Ni"]][["range"]],
+      energy = FALSE,
+      simplify = TRUE
+    )
+
+    niei <- signal_integrate(
+      user_spectra(),
+      background = user_curve()[["NiEi"]][["background"]],
+      range = user_curve()[["NiEi"]][["range"]],
+      energy = TRUE,
+      simplify = TRUE
+    )
+
+    as.data.frame(cbind(ni, niei))
+  })
+
   user_dose <- reactive({
-    req(input$sigma, input$epsilon, user_curve(), user_spectra())
+    req(input$sigma, input$epsilon, user_spectra(), user_curve())
     withCallingHandlers(
       {
         dose_predict(user_curve(), user_spectra(),
@@ -108,6 +130,7 @@ module_dose_server <- function(input, output, session,
   })
 
   output$energy <- renderUI({
+    req(user_spectra())
     if (!all(has_calibration(user_spectra()))) {
       tags$h4(
         tags$span(icon("triangle-exclamation"), style = "color: orange;"),
@@ -117,7 +140,34 @@ module_dose_server <- function(input, output, session,
     }
   })
 
+  output$integration <- renderText({
+    req(user_spectra())
+    energy_calib <- has_calibration(user_spectra())
+
+    tbl <- knitr::kable(
+      user_integrate(),
+      digits = user_settings$digits,
+      row.names = TRUE,
+      col.names = c("Value", "Error", "Value", "Error")
+    )
+    tbl <- kableExtra::kable_styling(
+      kable_input = tbl,
+      bootstrap_options = c("striped", "hover"),
+      full_width = TRUE, fixed_thead = TRUE
+    )
+    tbl <- kableExtra::add_header_above(
+      kable_input = tbl,
+      header = c(" " = 1, "Integration (Ni)" = 2, "Integration (NiEi)" = 2)
+    )
+    tbl <- kableExtra::row_spec(
+      kable_input = tbl,
+      row = which(!energy_calib), bold = FALSE,
+      color = "black", background = "orange"
+    )
+  })
+
   output$results <- renderText({
+    req(user_spectra())
     energy_calib <- has_calibration(user_spectra())
 
     tbl <- knitr::kable(
@@ -133,7 +183,7 @@ module_dose_server <- function(input, output, session,
     )
     tbl <- kableExtra::add_header_above(
       kable_input = tbl,
-      header = c(" " = 1, "Ni" = 2, "NiEi" = 2)
+      header = c(" " = 1, "Dose rate (Ni)" = 2, "Dose rate (NiEi)" = 2)
     )
     tbl <- kableExtra::row_spec(
       kable_input = tbl,

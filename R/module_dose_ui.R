@@ -62,22 +62,22 @@ module_dose_ui <- function(id) {
           width = 4,
           conditionalPanel(
             ns = ns,
-            condition = "input.curve != ''",
+            condition = "input.select_curve != ''",
             wellPanel(
               numericInput(
                 inputId = ns("sigma"),
-                label = "Sigma",
+                label = HTML("Error on the slope of the dose rate calibration curve (&sigma;)."),
                 min = 1, max = 7, value = 2, step = 1
               ),
               numericInput(
                 inputId = ns("epsilon"),
                 label = "Energy calibration error (%)",
-                min = 0, max = 100, value = 3, step = 1
+                min = 0, max = 100, value = 1.5, step = 0.5
               )
-            )
+            ),
+            plotOutput(outputId = ns("curve")),
+            uiOutput(outputId = ns("info"))
           ),
-          plotOutput(outputId = ns("curve")),
-          uiOutput(outputId = ns("info")),
           fileInput(
             inputId = ns("files"),
             label = "Import a calibration curve",
@@ -91,7 +91,25 @@ module_dose_ui <- function(id) {
         ),
         column(
           width = 8,
-          htmlOutput(outputId = ns("results"))
+          style = "margin-top: 25px;",
+          tabsetPanel(
+            tabPanel(
+              "Dose Rate Estimation",
+              icon = icon("circle-radiation"),
+              column(
+                width = 12,
+                htmlOutput(outputId = ns("results"))
+              )
+            ),
+            tabPanel(
+              "Signal Integration",
+              icon = icon("calculator"),
+              column(
+                width = 12,
+                htmlOutput(outputId = ns("integration"))
+              )
+            )
+          )
         )
       )
     )
