@@ -1,8 +1,7 @@
-citHeader("To cite gammaShiny in publications use:")
-
-citEntry(entry = "Article",
-  title        = "Gamma: An R Package for Dose Rate Estimation from In-Situ Gamma-Ray Spectrometry Measurements",
-  author       = c(person("Brice", "Lebrun", role = c("aut", "cre")),
+bibentry(
+  bibtype      = "Article",
+  header       = "To cite gammaShiny in publications use:",
+  author       = c(person("Brice", "Lebrun", role = "aut"),
                    person("Nicolas", "Frerebeau", role = "aut"),
                    person("Guilhem", "Paradol", role = "aut"),
                    person("Guillaume", "Guérin", role = "aut"),
@@ -10,17 +9,10 @@ citEntry(entry = "Article",
                    person("Chantal", "Tribolo", role = "aut"),
                    person("Christelle", "Lahaye", role = "aut"),
                    person("Magali", "Rizza", role = "aut")),
+  title        = "{gamma: An R Package for Dose Rate Estimation from In-Situ Gamma-Ray Spectrometry Measurements}",
   year         = "2020",
   journal      = "Ancient TL",
   volume       = "38",
   number       = "2",
-  pages        = "1-5",
-  url          = "",
-
-  textVersion  =
-  paste(
-    "Lebrun, Brice, Nicolas Frerebeau, Guilhem Paradol, Guillaume Guérin, Norbert Mercier, Chantal Tribolo, Christelle Lahaye, and Magalie Rizza. 2020.",
-    "Gamma: An R Package for Dose Rate Estimation from In-Situ Gamma-Ray Spectrometry Measurements.",
-    "Ancient TL 38 (2): 1-5."
-  )
+  pages        = "1-5"
 )

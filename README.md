@@ -22,32 +22,24 @@ A collection of [**shiny**](https://shiny.rstudio.com) application that
 provides exhanced graphical user interfaces for the
 [**gamma**](https://github.com/crp2a/gamma) package.
 
-<details>
-<summary>
-<strong>How to cite</strong> (click to expand)
-</summary>
-
-
     To cite gammaShiny in publications use:
 
-      Lebrun, Brice, Nicolas Frerebeau, Guilhem Paradol, Guillaume Guérin,
-      Norbert Mercier, Chantal Tribolo, Christelle Lahaye, and Magalie
-      Rizza. 2020. Gamma: An R Package for Dose Rate Estimation from
-      In-Situ Gamma-Ray Spectrometry Measurements. Ancient TL 38 (2): 1-5.
+      Lebrun B, Frerebeau N, Paradol G, Guérin G, Mercier N, Tribolo C,
+      Lahaye C, Rizza M (2020). "gamma: An R Package for Dose Rate
+      Estimation from In-Situ Gamma-Ray Spectrometry Measurements."
+      _Ancient TL_, *38*(2), 1-5.
 
     Une entrée BibTeX pour les utilisateurs LaTeX est
 
       @Article{,
-        title = {Gamma: An R Package for Dose Rate Estimation from In-Situ Gamma-Ray Spectrometry Measurements},
         author = {Brice Lebrun and Nicolas Frerebeau and Guilhem Paradol and Guillaume Guérin and Norbert Mercier and Chantal Tribolo and Christelle Lahaye and Magali Rizza},
+        title = {{gamma: An R Package for Dose Rate Estimation from In-Situ Gamma-Ray Spectrometry Measurements}},
         year = {2020},
         journal = {Ancient TL},
         volume = {38},
         number = {2},
         pages = {1-5},
       }
-
-</details>
 
 ## Installation
 

@@ -1,7 +1,5 @@
 ---
 output: github_document
-editor_options: 
-  chunk_output_type: console
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -31,20 +29,15 @@ knitr::opts_chunk$set(
 
 A collection of [**shiny**](https://shiny.rstudio.com) application that provides exhanced graphical user interfaces for the [**gamma**](https://github.com/crp2a/gamma) package.
 
-<details>
-<summary><strong>How to cite</strong> (click to expand)</summary>
-
 ```{r citation, echo=FALSE, comment=''}
 utils::citation("gammaShiny")
 ```
-
-</details>
 
 ## Installation
 
 You can install **gammaShiny** from [our repository](https://crp2a.r-universe.dev) with:
 
-```{r drat-installation, eval=FALSE}
+```{r universe-installation, eval=FALSE}
 install.packages("gammaShiny", repos = "https://crp2a.r-universe.dev")
 ```
 
