@@ -9,7 +9,7 @@ module_import_ui <- function(id) {
   ns <- NS(id)
 
   tabPanel(
-    "1. Import",
+    title = "1. Import",
     icon = icon("upload"),
     fluidPage(
       fluidRow(

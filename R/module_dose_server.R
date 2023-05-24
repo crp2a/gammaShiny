@@ -8,6 +8,7 @@
 #' @param user_settings a [shiny::reactiveValues()] list.
 #' @seealso [module_dose_ui()]
 #' @family modules
+#' @keywords internal
 #' @export
 module_dose_server <- function(input, output, session,
                                user_data, user_settings) {

@@ -2,6 +2,7 @@
 #'
 #' @param id A [`character`] vector to be used for the namespace.
 #' @family modules
+#' @keywords internal
 #' @export
 module_about_ui <- function(id) {
   tabPanel(

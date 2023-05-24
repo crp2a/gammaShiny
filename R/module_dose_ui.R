@@ -3,6 +3,7 @@
 #' @param id A [`character`] vector to be used for the namespace.
 #' @seealso [module_dose_server()]
 #' @family modules
+#' @keywords internal
 #' @export
 module_dose_ui <- function(id) {
   # Create a namespace function using the provided id
