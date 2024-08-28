@@ -49,7 +49,7 @@ module_settings_server <- function(input, output, session, user_settings) {
 
   output$session <- renderPrint({
     utils::sessionInfo()
-    })
+  })
 
   # Bookmark
   onBookmark(function(state) {

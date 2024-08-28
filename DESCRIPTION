@@ -31,7 +31,6 @@ Imports:
     plotly,
     shiny,
     shinyWidgets,
-    stats,
     tools,
     utils
 Encoding: UTF-8

@@ -41,7 +41,7 @@ module_energy_ui <- function(id) {
                 actionButton(inputId = ns("action"), "Calibrate"),
                 actionButton(inputId = ns("reset"), "Restore"),
                 tags$hr(),
-                dataTableOutput(outputId = ns("input_lines"))
+                DT::dataTableOutput(outputId = ns("input_lines"))
               )
             ),
             column(

@@ -26,3 +26,4 @@ Other modules:
 \code{\link{module_settings_ui}()}
 }
 \concept{modules}
+\keyword{internal}

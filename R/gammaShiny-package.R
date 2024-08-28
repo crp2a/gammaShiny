@@ -36,8 +36,9 @@
 #' @keywords internal
 "_PACKAGE"
 
+#' @import shiny
 #' @import gamma
-#' @importFrom DT datatable dataTableOutput editData renderDT
+#' @importFrom DT datatable editData
 #' @importFrom ggplot2 theme_bw
 #' @importFrom grDevices hcl
 #' @importFrom kableExtra add_header_above cell_spec kable_styling row_spec
@@ -48,14 +49,5 @@
 #' scale_color_pale scale_color_dark scale_color_light
 #' @importFrom methods as is
 #' @importFrom plotly ggplotly renderPlotly plotlyOutput
-#' @importFrom shiny numericInput NS actionButton checkboxInput column
-#' conditionalPanel downloadButton downloadHandler fileInput fluidPage fluidRow
-#' h4 h5 helpText htmlOutput icon img need observe observeEvent plotOutput
-#' radioButtons reactive reactiveVal reactiveValues renderPlot renderPrint
-#' renderText renderUI req selectInput showNotification sliderInput tabPanel
-#' tabsetPanel tagList tags textAreaInput uiOutput updateSelectInput
-#' updateSliderInput validate verbatimTextOutput navbarPage wellPanel
-#' enableBookmarking callModule tableOutput stopApp bookmarkButton onBookmark
-#' onRestore textOutput
 #' @importFrom shinyWidgets pickerInput
 NULL
