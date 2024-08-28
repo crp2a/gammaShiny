@@ -20,7 +20,7 @@ module_import_ui <- function(id) {
               inputId = ns("files"),
               label = "Import spectrum file(s)",
               multiple = TRUE,
-              accept = c(".cnf", ".CNF", ".tka", ".TKA")
+              accept = c(".cnf", ".CNF", ".tka", ".TKA", ".spe", ".SPE")
             ),
             tags$hr(),
             shinyWidgets::pickerInput(
