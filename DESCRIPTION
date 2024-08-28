@@ -6,6 +6,8 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-5759-4944")),
     person("Brice", "Lebrun", , "brice.lebrun@u-bordeaux-montaigne.fr", role = "aut",
            comment = c(ORCID = "0000-0001-7503-8685")),
+    person("Sebastian", "Kreutzer", , "sebastian.kreutzer@uni-heidelberg.de", role = "ctb",
+           comment = c(ORCID = "0000-0002-0734-2199")),
     person("Archéosciences Bordeaux", , , "services-archeosciences@u-bordeaux-montaigne.fr", role = "cre"),
     person("Université Bordeaux Montaigne", role = c("cph", "fnd")),
     person("CNRS", role = "fnd"),
@@ -33,7 +35,7 @@ Imports:
     tools,
     utils
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.3.2
 Collate: 
     'gammaShiny-package.R'
     'module_about_ui.R'

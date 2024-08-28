@@ -1,16 +1,17 @@
 #' @details
 #' \tabular{ll}{
-#'  \strong{Package:} \tab gammaShiny \cr
-#'  \strong{Type:} \tab Package \cr
-#'  \strong{Version:} \tab 0.2.0 \cr
-#'  \strong{License:} \tab GPL-3 \cr
-#'  \strong{DOI:} \tab \doi{10.5281/zenodo.4139005}
+#'  **Package:** \tab gammaShiny \cr
+#'  **Type:** \tab Package \cr
+#'  **Version:** \tab 0.2.0 \cr
+#'  **License:** \tab GPL-3 \cr
+#'  **Zenodo:** \tab \doi{10.5281/zenodo.4139005}
 #' }
 #' @author
 #' **Full list of authors and contributors** (alphabetic order)
 #'
 #' \tabular{ll}{
 #'  Nicolas Frerebeau \tab *Université Bordeaux Montaigne, France* \cr
+#'  Sebastian Kreutzer \tab *Universität Heidelberg, Germany* \cr
 #'  Brice Lebrun \tab *Université Bordeaux Montaigne, France*
 #' }
 #'
@@ -26,9 +27,9 @@
 #' France
 #' @note
 #' This work received a state financial support managed by the Agence Nationale
-#' de la Recherche (France) throught the program *Investissements d'avenir*
-#' (ref. \href{https://lascarbx.labex.u-bordeaux.fr}{ANR-10-LABX-52} and
-#' \href{https://amidex.univ-amu.fr/}{11-IDEX-0001}).
+#' de la Recherche (France) through the program *Investissements d'avenir*
+#' (ref. [ANR-10-LABX-52](https://lascarbx.labex.u-bordeaux.fr) and
+#' [11-IDEX-0001](https://www.univ-amu.fr/amidex/)).
 #' @name gammaShiny-package
 #' @aliases gammaShiny-package gammaShiny
 #' @docType package

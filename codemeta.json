@@ -13,7 +13,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.1 (2022-06-23)",
+  "runtimePlatform": "R version 4.4.1 (2024-06-14)",
   "author": [
     {
       "@type": "Person",
@@ -28,6 +28,15 @@
       "familyName": "Lebrun",
       "email": "brice.lebrun@u-bordeaux-montaigne.fr",
       "@id": "https://orcid.org/0000-0001-7503-8685"
+    }
+  ],
+  "contributor": [
+    {
+      "@type": "Person",
+      "givenName": "Sebastian",
+      "familyName": "Kreutzer",
+      "email": "sebastian.kreutzer@uni-heidelberg.de",
+      "@id": "https://orcid.org/0000-0002-0734-2199"
     }
   ],
   "copyrightHolder": [
@@ -198,7 +207,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "328.842KB",
+  "fileSize": "330.623KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -245,7 +254,7 @@
           "familyName": "Rizza"
         }
       ],
-      "name": "Gamma: An R Package for Dose Rate Estimation from In-Situ Gamma-Ray Spectrometry Measurements",
+      "name": "{gamma: An R Package for Dose Rate Estimation from In-Situ Gamma-Ray Spectrometry Measurements}",
       "pagination": "1-5",
       "isPartOf": {
         "@type": "PublicationIssue",

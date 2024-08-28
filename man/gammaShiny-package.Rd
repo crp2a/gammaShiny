@@ -3,7 +3,6 @@
 \docType{package}
 \name{gammaShiny-package}
 \alias{gammaShiny-package}
-\alias{_PACKAGE}
 \alias{gammaShiny}
 \title{gammaShiny: 'Shiny' Applications for the R Package 'gamma'}
 \description{
@@ -13,18 +12,18 @@ A collection of 'shiny' applications for the R package 'gamma'.
 }
 \details{
 \tabular{ll}{
- \strong{Package:} \tab gammaShiny \cr
- \strong{Type:} \tab Package \cr
- \strong{Version:} \tab 0.2.0 \cr
- \strong{License:} \tab GPL-3 \cr
- \strong{DOI:} \tab \doi{10.5281/zenodo.4139005}
+ **Package:** \tab gammaShiny \cr
+ **Type:** \tab Package \cr
+ **Version:** \tab 0.2.0 \cr
+ **License:** \tab GPL-3 \cr
+ **Zenodo:** \tab \doi{10.5281/zenodo.4139005}
 }
 }
 \note{
 This work received a state financial support managed by the Agence Nationale
-de la Recherche (France) throught the program *Investissements d'avenir*
-(ref. \href{https://lascarbx.labex.u-bordeaux.fr}{ANR-10-LABX-52} and
-\href{https://amidex.univ-amu.fr/}{11-IDEX-0001}).
+de la Recherche (France) through the program *Investissements d'avenir*
+(ref. [ANR-10-LABX-52](https://lascarbx.labex.u-bordeaux.fr) and
+[11-IDEX-0001](https://www.univ-amu.fr/amidex/)).
 }
 \seealso{
 Useful links:
@@ -39,6 +38,7 @@ Useful links:
 
 \tabular{ll}{
  Nicolas Frerebeau \tab *Université Bordeaux Montaigne, France* \cr
+ Sebastian Kreutzer \tab *Universität Heidelberg, Germany* \cr
  Brice Lebrun \tab *Université Bordeaux Montaigne, France*
 }
 
