@@ -26,8 +26,8 @@ vignettes/figures/
 *.knit.md
 # Shiny token, see https://shiny.rstudio.com/articles/shinyapps.html
 rsconnect/
-.Rproj.user
 inst/doc
+shiny_bookmarks/*
 
 # Temporary files created by devtools
 CRAN-RELEASE
