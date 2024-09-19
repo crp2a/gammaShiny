@@ -73,34 +73,31 @@ module_import_server <- function(input, output, session,
     plotly::ggplotly(plot_spectra())
   })
 
-  output$summary <- renderText({
+  output$summary <- gt::render_gt({
     tbl <- user_table()
     id <- tbl$name
-    tbl$name <- kableExtra::cell_spec(
-      x = tbl$name,
-      format = "html",
-      bold = TRUE,
-      color = "white",
-      background = factor(id, id, user_settings$fig_colour(length(id)))
-    )
-    tbl <- knitr::kable(
-      x = tbl,
-      format = "html",
-      escape = FALSE,
-      digits = user_settings$digits,
-      row.names = FALSE,
-      col.names = c("Name", "Date", "Live time", "Real time", "Channels",
-                    "Min.", "Max.")
-    )
-    tbl <- kableExtra::kable_styling(
-      kable_input = tbl,
-      bootstrap_options = c("striped", "hover"),
-      full_width = TRUE, fixed_thead = TRUE
-    )
-    kableExtra::add_header_above(
-      kable_input = tbl,
-      header = c(" " = 5, "Energy Range" = 2)
-    )
+    pal <- unclass(user_settings$fig_colour(length(id)))
+
+    tbl |>
+      gt::gt() |>
+      gt::tab_spanner(
+        label = "Energy Range",
+        columns = gt::starts_with("energy")
+      ) |>
+      gt::cols_label(
+        name = "Name", date = "Date", live_time = "Live time",
+        real_time = "Real time", channels = "Channels",
+        energy_min = "Min.", energy_max = "Max."
+      ) |>
+      gt::fmt_number(
+        decimals = user_settings$digits
+      ) |>
+      gt::data_color(
+        columns = 1,
+        method = "factor",
+        palette = pal
+      ) |>
+      gt::tab_options(table.width = "100%")
   })
 
   output$export_plot <- downloadHandler(

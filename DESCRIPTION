@@ -24,7 +24,7 @@ Imports:
     gamma (>= 1.0.3),
     ggplot2,
     grDevices,
-    kableExtra,
+    gt,
     khroma,
     knitr,
     methods,

@@ -69,7 +69,7 @@ module_import_ui <- function(id) {
       fluidRow(
         column(
           width = 12,
-          tableOutput(outputId = ns("summary"))
+          gt::gt_output(outputId = ns("summary"))
         )
       )
     )

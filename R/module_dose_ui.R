@@ -72,8 +72,8 @@ module_dose_ui <- function(id) {
               ),
               numericInput(
                 inputId = ns("epsilon"),
-                label = "Energy calibration error (%)",
-                min = 0, max = 100, value = 1.5, step = 0.5
+                label = "Extra relative error term (%; calibration of the energy scale)",
+                min = 0, max = 100, value = 1.5, step = 0.05
               )
             ),
             plotOutput(outputId = ns("curve")),
@@ -99,7 +99,7 @@ module_dose_ui <- function(id) {
               icon = icon("circle-radiation"),
               column(
                 width = 12,
-                htmlOutput(outputId = ns("results"))
+                gt::gt_output(outputId = ns("results"))
               )
             ),
             tabPanel(
@@ -107,7 +107,7 @@ module_dose_ui <- function(id) {
               icon = icon("calculator"),
               column(
                 width = 12,
-                htmlOutput(outputId = ns("integration"))
+                gt::gt_output(outputId = ns("integration"))
               )
             )
           )

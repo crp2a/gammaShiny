@@ -47,7 +47,10 @@ You can install **gammaShiny** from [our
 repository](https://crp2a.r-universe.dev) with:
 
 ``` r
-install.packages("gammaShiny", repos = "https://crp2a.r-universe.dev")
+options(repos = c(CRAN = "https://cloud.r-project.org",
+                  crp2a = "https://crp2a.r-universe.dev"))
+
+install.packages("gammaShiny")
 ```
 
 ## Usage

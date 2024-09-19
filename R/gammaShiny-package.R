@@ -41,8 +41,6 @@
 #' @importFrom DT datatable editData
 #' @importFrom ggplot2 theme_bw
 #' @importFrom grDevices hcl
-#' @importFrom kableExtra add_header_above cell_spec kable_styling row_spec
-#' spec_color
 #' @importFrom knitr kable
 #' @importFrom khroma colour scale_color_discreterainbow scale_color_bright
 #' scale_color_highcontrast scale_color_vibrant scale_color_muted

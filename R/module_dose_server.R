@@ -32,34 +32,16 @@ module_dose_server <- function(input, output, session,
     get(input$select_curve, envir = env_calibration)
   })
 
-  user_integrate <- reactive({
-    req(user_curve(), user_spectra())
-
-    ni <- signal_integrate(
-      user_spectra(),
-      background = user_curve()[["Ni"]][["background"]],
-      range = user_curve()[["Ni"]][["range"]],
-      energy = FALSE,
-      simplify = TRUE
-    )
-
-    niei <- signal_integrate(
-      user_spectra(),
-      background = user_curve()[["NiEi"]][["background"]],
-      range = user_curve()[["NiEi"]][["range"]],
-      energy = TRUE,
-      simplify = TRUE
-    )
-
-    as.data.frame(cbind(ni, niei))
-  })
-
   user_dose <- reactive({
     req(input$sigma, input$epsilon, user_spectra(), user_curve())
     withCallingHandlers(
       {
-        dose_predict(user_curve(), user_spectra(),
-                     sigma = input$sigma, epsilon = input$epsilon / 100)
+        dose_predict(
+          object = user_curve(),
+          spectrum = user_spectra(),
+          sigma = input$sigma,
+          epsilon = input$epsilon / 100
+        )
       },
       warning = function(e) {
         warn <- gsub("\n|\\*", "", e$message)
@@ -141,56 +123,78 @@ module_dose_server <- function(input, output, session,
     }
   })
 
-  output$integration <- renderText({
+  output$integration <- gt::render_gt({
     req(user_spectra())
+    req(user_dose())
     energy_calib <- has_calibration(user_spectra())
 
-    tbl <- knitr::kable(
-      user_integrate(),
-      digits = user_settings$digits,
-      row.names = TRUE,
-      col.names = c("Value", "Error", "Value", "Error")
-    )
-    tbl <- kableExtra::kable_styling(
-      kable_input = tbl,
-      bootstrap_options = c("striped", "hover"),
-      full_width = TRUE, fixed_thead = TRUE
-    )
-    tbl <- kableExtra::add_header_above(
-      kable_input = tbl,
-      header = c(" " = 1, "Integration (Ni)" = 2, "Integration (NiEi)" = 2)
-    )
-    tbl <- kableExtra::row_spec(
-      kable_input = tbl,
-      row = which(!energy_calib), bold = FALSE,
-      color = "black", background = "orange"
-    )
+    tbl <- user_dose()
+    col <- which(startsWith(colnames(tbl), "signal"))
+
+    tbl <- tbl[, c(1, col)]
+    tbl |>
+      gt::gt(
+        rowname_col = "name"
+      ) |>
+      gt::tab_spanner(
+        label = "Integration (Ni)",
+        columns = gt::ends_with("Ni")
+      ) |>
+      gt::tab_spanner(
+        label = "Integration (NiEi)",
+        columns = gt::ends_with("NiEi")
+      ) |>
+      gt::cols_label(
+        gt::starts_with("signal_Ni") ~ "Value",
+        gt::starts_with("signal_err") ~ "Error"
+      ) |>
+      gt::fmt_number(
+        decimals = user_settings$digits
+      ) |>
+      gt::data_color(
+        rows = which(!energy_calib),
+        palette = "orange"
+      ) |>
+      gt::tab_options(table.width = "100%")
   })
 
-  output$results <- renderText({
+  output$results <- gt::render_gt({
     req(user_spectra())
+    req(user_dose())
     energy_calib <- has_calibration(user_spectra())
 
-    tbl <- knitr::kable(
-      user_dose(),
-      digits = user_settings$digits,
-      row.names = FALSE,
-      col.names = c("Name", "Value", "Error", "Value", "Error")
-    )
-    tbl <- kableExtra::kable_styling(
-      kable_input = tbl,
-      bootstrap_options = c("striped", "hover"),
-      full_width = TRUE, fixed_thead = TRUE
-    )
-    tbl <- kableExtra::add_header_above(
-      kable_input = tbl,
-      header = c(" " = 1, "Dose rate (Ni)" = 2, "Dose rate (NiEi)" = 2)
-    )
-    tbl <- kableExtra::row_spec(
-      kable_input = tbl,
-      row = which(!energy_calib), bold = FALSE,
-      color = "black", background = "orange"
-    )
+    tbl <- user_dose()
+    col <- which(startsWith(colnames(tbl), "dose"))
+
+    tbl <- tbl[, c(1, col)]
+    tbl |>
+      gt::gt(
+        rowname_col = "name"
+      ) |>
+      gt::tab_spanner(
+        label = "Dose rate (Ni)",
+        columns = gt::ends_with("Ni")
+      ) |>
+      gt::tab_spanner(
+        label = "Dose rate (NiEi)",
+        columns = gt::ends_with("NiEi")
+      ) |>
+      gt::tab_spanner(
+        label = "Mean dose rate",
+        columns = gt::ends_with("final")
+      ) |>
+      gt::cols_label(
+        gt::starts_with(c("dose_Ni", "dose_final")) ~ "Value",
+        gt::starts_with(c("dose_err", "dose_err_final")) ~ "Error"
+      ) |>
+      gt::fmt_number(
+        decimals = user_settings$digits
+      ) |>
+      gt::data_color(
+        rows = which(!energy_calib),
+        palette = "orange"
+      ) |>
+      gt::tab_options(table.width = "100%")
   })
 
   output$export_table <- downloadHandler(
