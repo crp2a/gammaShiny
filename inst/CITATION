@@ -1,6 +1,7 @@
+citHeader("To cite gammaShiny in publications use:")
 bibentry(
   bibtype      = "Article",
-  header       = "To cite gammaShiny in publications use:",
+  key          = "lebrun2020",
   author       = c(person("Brice", "Lebrun", role = "aut"),
                    person("Nicolas", "Frerebeau", role = "aut"),
                    person("Guilhem", "Paradol", role = "aut"),
@@ -15,4 +16,17 @@ bibentry(
   volume       = "38",
   number       = "2",
   pages        = "1-5"
+)
+bibentry(
+  bibtype      = "Manual",
+  key          = "R-gammaShiny",
+  author       = c(person("Nicolas", "Frerebeau", role = "aut"),
+                   person("Brice", "Lebrun", role = "aut"),
+                   person("Sebastian", "Kreutzer", rol = "aut")),
+  title        = "{gammaShiny: shiny Applications for the R Package gamma}",
+  year         = "2024",
+  organization = "Université Bordeaux Montaigne",
+  address      = "Pessac, France",
+  note         = sprintf("R package version %s", meta$Version),
+  doi          = "10.5281/zenodo.4139005"
 )

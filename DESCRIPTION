@@ -1,5 +1,5 @@
 Package: gammaShiny
-Title: 'Shiny' Applications for the R Package 'gamma'
+Title: 'shiny' Applications for the R Package 'gamma'
 Version: 0.2.0
 Authors@R: c(
     person("Nicolas", "Frerebeau", , "nicolas.frerebeau@u-bordeaux-montaigne.fr", role = "aut",

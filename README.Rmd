@@ -30,7 +30,8 @@ knitr::opts_chunk$set(
 A collection of [**shiny**](https://shiny.rstudio.com) application that provides exhanced graphical user interfaces for the [**gamma**](https://github.com/crp2a/gamma) package.
 
 ```{r citation, echo=FALSE, comment=''}
-utils::citation("gammaShiny")
+cite <- utils::citation("gammaShiny")
+print(cite, bibtex = FALSE)
 ```
 
 ## Installation

@@ -29,17 +29,10 @@ provides exhanced graphical user interfaces for the
       Estimation from In-Situ Gamma-Ray Spectrometry Measurements."
       _Ancient TL_, *38*(2), 1-5.
 
-    Une entrée BibTeX pour les utilisateurs LaTeX est
-
-      @Article{,
-        author = {Brice Lebrun and Nicolas Frerebeau and Guilhem Paradol and Guillaume Guérin and Norbert Mercier and Chantal Tribolo and Christelle Lahaye and Magali Rizza},
-        title = {{gamma: An R Package for Dose Rate Estimation from In-Situ Gamma-Ray Spectrometry Measurements}},
-        year = {2020},
-        journal = {Ancient TL},
-        volume = {38},
-        number = {2},
-        pages = {1-5},
-      }
+      Frerebeau N, Lebrun B, Kreutzer S (2024). _gammaShiny: shiny
+      Applications for the R Package gamma_. Université Bordeaux Montaigne,
+      Pessac, France. doi:10.5281/zenodo.4139005
+      <https://doi.org/10.5281/zenodo.4139005>, R package version 0.2.0.
 
 ## Installation
 
