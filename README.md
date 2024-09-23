@@ -56,7 +56,7 @@ library(gammaShiny)
 run_app("doserate")
 ```
 
-![](man/figures/README-shiny-1.png)
+![](man/figures/README-screenshots-1.png)
 
 ## Contributing
 

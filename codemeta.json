@@ -87,7 +87,7 @@
       "@type": "SoftwareApplication",
       "identifier": "gamma",
       "name": "gamma",
-      "version": ">= 1.0.3",
+      "version": ">= 1.1.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -202,7 +202,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "328.18KB",
+  "fileSize": "328.326KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -293,5 +293,5 @@
   "readme": "https://github.com/crp2a/gammaShiny/blob/master/README.md",
   "contIntegration": "https://github.com/crp2a/gammaShiny/actions/workflows/R-CMD-check.yaml",
   "developmentStatus": "https://www.repostatus.org/#active",
-  "keywords": ["luminescence-dating", "geochronology", "archaeology", "r-package", "shiny-apps"]
+  "keywords": ["luminescence-dating", "geochronology", "r-package", "shiny-apps", "archaeometry"]
 }

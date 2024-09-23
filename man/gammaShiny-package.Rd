@@ -4,7 +4,7 @@
 \name{gammaShiny-package}
 \alias{gammaShiny-package}
 \alias{gammaShiny}
-\title{gammaShiny: 'Shiny' Applications for the R Package 'gamma'}
+\title{gammaShiny: 'shiny' Applications for the R Package 'gamma'}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 

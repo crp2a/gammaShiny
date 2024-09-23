@@ -22,7 +22,7 @@ bibentry(
   key          = "R-gammaShiny",
   author       = c(person("Nicolas", "Frerebeau", role = "aut"),
                    person("Brice", "Lebrun", role = "aut"),
-                   person("Sebastian", "Kreutzer", rol = "aut")),
+                   person("Sebastian", "Kreutzer", role = "aut")),
   title        = "{gammaShiny: shiny Applications for the R Package gamma}",
   year         = "2024",
   organization = "Université Bordeaux Montaigne",

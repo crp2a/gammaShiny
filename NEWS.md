@@ -1,8 +1,9 @@
-## gammaShiny 0.1.0.9000
+# gammaShiny 0.2.0
+
+**This version of gammaShiny requires gamma >= 1.1.0!**
+
 * Enable support for Kromek `.spe` file format.
 
-
-## gammaShiny 0.1.0
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4139006.svg)](https://doi.org/10.5281/zenodo.4139006)
+# gammaShiny 0.1.0
 
 * First release.
