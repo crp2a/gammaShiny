@@ -22,8 +22,7 @@ A collection of 'shiny' applications for the R package 'gamma'.
 \note{
 This work received a state financial support managed by the Agence Nationale
 de la Recherche (France) through the program *Investissements d'avenir*
-(ref. [ANR-10-LABX-52](https://lascarbx.labex.u-bordeaux.fr) and
-[11-IDEX-0001](https://www.univ-amu.fr/amidex/)).
+(ref. ANR-10-LABX-52 and 11-IDEX-0001).
 }
 \seealso{
 Useful links:
