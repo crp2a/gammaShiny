@@ -1,6 +1,6 @@
 Package: gammaShiny
 Title: 'shiny' Applications for the R Package 'gamma'
-Version: 0.2.0
+Version: 0.2.0.9000
 Authors@R: c(
     person("Nicolas", "Frerebeau", , "nicolas.frerebeau@u-bordeaux-montaigne.fr", role = "aut",
            comment = c(ORCID = "0000-0001-5759-4944")),

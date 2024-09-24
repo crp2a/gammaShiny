@@ -1,3 +1,5 @@
+# gammaShiny 0.2.0.9000
+
 # gammaShiny 0.2.0
 
 **This version of gammaShiny requires gamma >= 1.1.0!**
