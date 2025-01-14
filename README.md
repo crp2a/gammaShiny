@@ -27,7 +27,8 @@ provides exhanced graphical user interfaces for the
       Lebrun B, Frerebeau N, Paradol G, Guérin G, Mercier N, Tribolo C,
       Lahaye C, Rizza M (2020). "gamma: An R Package for Dose Rate
       Estimation from In-Situ Gamma-Ray Spectrometry Measurements."
-      _Ancient TL_, *38*(2), 1-5.
+      _Ancient TL_, *38*(2), 1-5. doi:10.26034/la.atl.2020.544
+      <https://doi.org/10.26034/la.atl.2020.544>.
 
       Frerebeau N, Lebrun B, Kreutzer S (2024). _gammaShiny: shiny
       Applications for the R Package gamma_. Université Bordeaux Montaigne,

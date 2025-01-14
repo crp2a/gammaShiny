@@ -15,7 +15,8 @@ bibentry(
   journal      = "Ancient TL",
   volume       = "38",
   number       = "2",
-  pages        = "1-5"
+  pages        = "1-5",
+  doi          = "10.26034/la.atl.2020.544"
 )
 bibentry(
   bibtype      = "Manual",
